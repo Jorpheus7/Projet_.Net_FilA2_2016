@@ -9,7 +9,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="css/material.css" rel="stylesheet" />
+    <link href="css/ripples.css" rel="stylesheet" />
     <link href="css/theme.css" rel="stylesheet" />
     <title>Home</title>
 </head>
@@ -24,7 +25,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">Le Site</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -53,5 +54,7 @@
     </form>
 
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/material.js" type="text/javascript"></script>
+    <script src="js/ripples.js" type="text/javascript"></script>
 </body>
 </html>
