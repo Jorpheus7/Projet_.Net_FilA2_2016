@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bl", "bl", "{8171DE8D-D7E9-47F2-B1DF-F34A0660AE60}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dal", "dal", "{AC518835-AC57-47D9-A790-9C16570438D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{3F85BC4F-30DB-4D2D-8E35-6A9AFD8097F5}"
 EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
