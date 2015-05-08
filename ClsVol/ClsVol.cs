@@ -8,81 +8,95 @@ using System.EnterpriseServices;
 
 namespace voyage.vol
 {
-    [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(true), ApplicationName("Voyage 2015")]
+    [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(true)]
     public class ClsVol : ServicedComponent
     {
 
         [AutoComplete]
-        public void vol_ad(char[] ad)
+        public SqlDataReader liste_vols_aeroport(char[] ad)
         {
             SqlConnection myConnection = openConnection();
             SqlCommand MyCommand = new SqlCommand("vol_ad", myConnection);
             MyCommand.CommandType = CommandType.StoredProcedure;
-            MyCommand.Parameters.Add("@AD", SqlDbType.Char);
-            MyCommand.Parameters["@AD"].Value = ad;
+            MyCommand.Parameters.Add("@aeroport", SqlDbType.Char);
+            MyCommand.Parameters["@aeroport"].Value = ad;
 
+            SqlDataReader reader = MyCommand.ExecuteReader();
             myConnection.Close();
+
+            return reader;
         }
 
         [AutoComplete]
-        public void vol_ad_aa(char[] ad, char[] aa)
+        public SqlDataReader liste_vols_aeroport_aeroport(char[] ad, char[] aa)
         {
             SqlConnection myConnection = openConnection();
-            SqlCommand MyCommand = new SqlCommand("vol_ad_aa", myConnection);
+            SqlCommand MyCommand = new SqlCommand("liste_vols_aeroport_aeroport", myConnection);
             MyCommand.CommandType = CommandType.StoredProcedure;
-            MyCommand.Parameters.Add("@AD", SqlDbType.Char);
-            MyCommand.Parameters["@AD"].Value = ad;
-            MyCommand.Parameters.Add("@AA", SqlDbType.Char);
-            MyCommand.Parameters["@AA"].Value = aa;
+            MyCommand.Parameters.Add("@aeroportD", SqlDbType.Char);
+            MyCommand.Parameters["@aeroportD"].Value = ad;
+            MyCommand.Parameters.Add("@aeroportA", SqlDbType.Char);
+            MyCommand.Parameters["@aeroportA"].Value = aa;
 
+            SqlDataReader reader = MyCommand.ExecuteReader();
             myConnection.Close();
+
+            return reader;
         }
 
         [AutoComplete]
-        public void vol_ad_d(char[] ad, DateTimeOffset d)
+        public SqlDataReader liste_vols_date_aeroport(char[] ad, DateTimeOffset d)
         {
             SqlConnection myConnection = openConnection();
-            SqlCommand MyCommand = new SqlCommand("vol_ad_d", myConnection);
+            SqlCommand MyCommand = new SqlCommand("liste_vols_date_aeroport", myConnection);
             MyCommand.CommandType = CommandType.StoredProcedure;
-            MyCommand.Parameters.Add("@AD", SqlDbType.Char);
-            MyCommand.Parameters["@AD"].Value = ad;
-            MyCommand.Parameters.Add("@D", SqlDbType.DateTimeOffset);
-            MyCommand.Parameters["@D"].Value = d;
+            MyCommand.Parameters.Add("@aeroport", SqlDbType.Char);
+            MyCommand.Parameters["@aeroport"].Value = ad;
+            MyCommand.Parameters.Add("@date", SqlDbType.DateTimeOffset);
+            MyCommand.Parameters["@date"].Value = d;
 
+            SqlDataReader reader = MyCommand.ExecuteReader();
             myConnection.Close();
+
+            return reader;
         }
 
         [AutoComplete]
-        public void vol_ad_aa_d(char[] ad, char[] aa, DateTimeOffset d)
+        public SqlDataReader liste_vols_aeroport_aeroport_date(char[] ad, char[] aa, DateTimeOffset d)
         {
             SqlConnection myConnection = openConnection();
-            SqlCommand MyCommand = new SqlCommand("vol_ad_aa_d", myConnection);
+            SqlCommand MyCommand = new SqlCommand("liste_vols_aeroport_aeroport_date", myConnection);
             MyCommand.CommandType = CommandType.StoredProcedure;
-            MyCommand.Parameters.Add("@AD", SqlDbType.Char);
-            MyCommand.Parameters["@AD"].Value = ad;
-            MyCommand.Parameters.Add("@AA", SqlDbType.Char);
-            MyCommand.Parameters["@AA"].Value = aa;
-            MyCommand.Parameters.Add("@D", SqlDbType.DateTimeOffset);
-            MyCommand.Parameters["@D"].Value = d;
+            MyCommand.Parameters.Add("@aeroportD", SqlDbType.Char);
+            MyCommand.Parameters["@aeroportD"].Value = ad;
+            MyCommand.Parameters.Add("@aeroportA", SqlDbType.Char);
+            MyCommand.Parameters["@aeroportA"].Value = aa;
+            MyCommand.Parameters.Add("@date", SqlDbType.DateTimeOffset);
+            MyCommand.Parameters["@date"].Value = d;
 
+            SqlDataReader reader = MyCommand.ExecuteReader();
             myConnection.Close();
+
+            return reader;
         }
 
         [AutoComplete]
-        public void aeroport()
+        public SqlDataReader liste_aeroports()
         {
             SqlConnection myConnection = openConnection();
-            SqlCommand MyCommand = new SqlCommand("aeroport", myConnection);
+            SqlCommand MyCommand = new SqlCommand("liste_aeroports", myConnection);
             MyCommand.CommandType = CommandType.StoredProcedure;
 
+            SqlDataReader reader = MyCommand.ExecuteReader();
             myConnection.Close();
+
+            return reader;
         }
 
         private SqlConnection openConnection()
         {
             SqlConnection myConnection = new SqlConnection();
-            // TODO Set the right Data Source value
-            myConnection.ConnectionString = "Data Source=Jorpheus-PC\\SQLEXPRESS;Initial Catalog=VOLS;Integrated Security=True";
+            myConnection.ConnectionString = "Data Source=PC-PC\\SQLEXPRESS;Initial Catalog=CMDVOLS;Integrated Security=True";
             myConnection.Open();
             return myConnection;
         }

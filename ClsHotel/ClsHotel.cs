@@ -8,38 +8,57 @@ using System.EnterpriseServices;
 
 namespace voyage.hotel
 {
-    [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(true), ApplicationName("Voyage 2015")]
+    [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(true)]
     public class ClsHotel : ServicedComponent
     {
         [AutoComplete]
-        public void hotel_cp(char[] cp)
+        public SqlDataReader liste_hotels_ville(char[] cp)
         {
             SqlConnection myConnection = openConnection();
-            SqlCommand MyCommand = new SqlCommand("hotel_cp", myConnection);
+            SqlCommand MyCommand = new SqlCommand("liste_hotels_ville", myConnection);
             MyCommand.CommandType = CommandType.StoredProcedure;
-            MyCommand.Parameters.Add("@CP", SqlDbType.VarChar);
-            MyCommand.Parameters["@CP"].Value = cp;
+            MyCommand.Parameters.Add("@codePostal", SqlDbType.VarChar);
+            MyCommand.Parameters["@codePostal"].Value = cp;
 
+            SqlDataReader reader = MyCommand.ExecuteReader();
             myConnection.Close();
+
+            return reader;
+
         }
 
         [AutoComplete]
-        public void chambres_hotel(int hotelId)
+        public SqlDataReader chambres_hotel(int hotelId)
         {
             SqlConnection myConnection = openConnection();
-            SqlCommand MyCommand = new SqlCommand("chambres_hotel", myConnection);
+            SqlCommand MyCommand = new SqlCommand("liste_chambres_hotel", myConnection);
             MyCommand.CommandType = CommandType.StoredProcedure;
-            MyCommand.Parameters.Add("@HOTEL", SqlDbType.Int);
-            MyCommand.Parameters["@HOTEL"].Value = hotelId;
+            MyCommand.Parameters.Add("@id", SqlDbType.Int);
+            MyCommand.Parameters["@id"].Value = hotelId;
 
+            SqlDataReader reader = MyCommand.ExecuteReader();
             myConnection.Close();
+
+            return reader;
+        }
+
+        [AutoComplete]
+        public SqlDataReader liste_villes()
+        {
+            SqlConnection myConnection = openConnection();
+            SqlCommand MyCommand = new SqlCommand("liste_villes", myConnection);
+            MyCommand.CommandType = CommandType.StoredProcedure;
+
+            SqlDataReader reader = MyCommand.ExecuteReader();
+            myConnection.Close();
+
+            return reader;
         }
 
         private SqlConnection openConnection()
         {
             SqlConnection myConnection = new SqlConnection();
-            // TODO Set the right Data Source value
-            myConnection.ConnectionString = "Data Source=Jorpheus-PC\\SQLEXPRESS;Initial Catalog=HOTELS;Integrated Security=True";
+            myConnection.ConnectionString = "Data Source=PC-PC\\SQLEXPRESS;Initial Catalog=HOTELS;Integrated Security=True";
             myConnection.Open();
             return myConnection;
         }
