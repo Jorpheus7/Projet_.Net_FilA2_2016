@@ -43,25 +43,25 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClsCmdHotel", "ClsCmdHotel\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClsListerVol", "ClsListerVol\ClsListerVol.csproj", "{8D014F55-4E4F-4FEE-8479-E2D075696CF5}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WSHotel", "http://localhost:2599", "{845A4784-BAA0-4633-8B08-A47092864B50}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WSHotels", "http://localhost:2849", "{1BD3BC09-7571-42A7-ABDB-C9818D692938}"
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv3.5"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_2599"
-		Debug.AspNetCompiler.PhysicalPath = "..\..\..\Documents\Visual Studio 2013\WebSites\WSHotel\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2599\"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_2849"
+		Debug.AspNetCompiler.PhysicalPath = "WSHotels\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2849\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_2599"
-		Release.AspNetCompiler.PhysicalPath = "..\..\..\Documents\Visual Studio 2013\WebSites\WSHotel\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2599\"
+		Release.AspNetCompiler.VirtualPath = "/localhost_2849"
+		Release.AspNetCompiler.PhysicalPath = "WSHotels\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2849\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		SlnRelativePath = "..\..\..\Documents\Visual Studio 2013\WebSites\WSHotel\"
+		SlnRelativePath = "WSHotels\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
@@ -95,10 +95,10 @@ Global
 		{8D014F55-4E4F-4FEE-8479-E2D075696CF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D014F55-4E4F-4FEE-8479-E2D075696CF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D014F55-4E4F-4FEE-8479-E2D075696CF5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{845A4784-BAA0-4633-8B08-A47092864B50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{845A4784-BAA0-4633-8B08-A47092864B50}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{845A4784-BAA0-4633-8B08-A47092864B50}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{845A4784-BAA0-4633-8B08-A47092864B50}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{1BD3BC09-7571-42A7-ABDB-C9818D692938}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BD3BC09-7571-42A7-ABDB-C9818D692938}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BD3BC09-7571-42A7-ABDB-C9818D692938}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BD3BC09-7571-42A7-ABDB-C9818D692938}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -110,6 +110,6 @@ Global
 		{93C89CA5-2B6C-451F-B359-4AA8392E3D77} = {AC518835-AC57-47D9-A790-9C16570438D1}
 		{0437CBBE-28BB-4774-8E6C-6C58D97BE99A} = {AC518835-AC57-47D9-A790-9C16570438D1}
 		{8D014F55-4E4F-4FEE-8479-E2D075696CF5} = {8171DE8D-D7E9-47F2-B1DF-F34A0660AE60}
-		{845A4784-BAA0-4633-8B08-A47092864B50} = {3F85BC4F-30DB-4D2D-8E35-6A9AFD8097F5}
+		{1BD3BC09-7571-42A7-ABDB-C9818D692938} = {3F85BC4F-30DB-4D2D-8E35-6A9AFD8097F5}
 	EndGlobalSection
 EndGlobal
