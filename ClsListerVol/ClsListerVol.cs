@@ -6,7 +6,7 @@ using voyage.vol;
 using System.EnterpriseServices;
 using System.Data.SqlClient;
 
-namespace ClsListerVol
+namespace voyage.listerVol
 {
     [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(true)]
     public class ClsListerVol: ServicedComponent
@@ -18,28 +18,28 @@ namespace ClsListerVol
             SqlDataReader reader = myVol.liste_vols_aeroport(ad);
             return recuperationListVol(reader);
         }
-
+         [AutoComplete]
         public List<vol> liste_vols_aeroport_aeroport(char[] ad, char[] aa)
         {
             ClsVol myVol = new ClsVol();
             SqlDataReader reader = myVol.liste_vols_aeroport_aeroport(ad,aa);
             return recuperationListVol(reader);
         }
-
+         [AutoComplete]
         public List<vol> liste_vols_date_aeroport(char[] ad, DateTimeOffset d)
         {
             ClsVol myVol = new ClsVol();
             SqlDataReader reader = myVol.liste_vols_date_aeroport(ad,d);
             return recuperationListVol(reader);
         }
-
+         [AutoComplete]
         public List<vol> liste_vols_aeroport_aeroport_date(char[] ad, char[] aa, DateTimeOffset d)
         {
             ClsVol myVol = new ClsVol();
             SqlDataReader reader = myVol.liste_vols_aeroport_aeroport_date(ad,aa, d);
             return recuperationListVol(reader);
         }
-
+         [AutoComplete]
         public List <aeroport> liste_aeroports()
         {
             ClsVol myVol = new ClsVol();
@@ -59,6 +59,7 @@ namespace ClsListerVol
             }
             return liste;
         }
+        [AutoComplete]
         public List<vol> recuperationListVol(SqlDataReader reader)
         {
             List<vol> liste = new List<vol>();

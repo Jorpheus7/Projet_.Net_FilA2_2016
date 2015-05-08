@@ -33,28 +33,6 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "LeSite", "http://localhost:
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{62F87627-7521-4D55-9535-3A18D58C4E04}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WSCommande", "http://localhost:28171", "{16A1A1BC-EB25-43DD-B372-C7E47B2D44E7}"
-	ProjectSection(WebsiteProperties) = preProject
-		UseIISExpress = "true"
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv3.5"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_28171"
-		Debug.AspNetCompiler.PhysicalPath = "d:\Documents\Visual Studio 2013\WebSites\WSCommande\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_28171\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_28171"
-		Release.AspNetCompiler.PhysicalPath = "d:\Documents\Visual Studio 2013\WebSites\WSCommande\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_28171\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		SlnRelativePath = "d:\Documents\Visual Studio 2013\WebSites\WSCommande\"
-		DefaultWebSiteLanguage = "Visual C#"
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClsHotel", "ClsHotel\ClsHotel.csproj", "{EE12EBAB-BC2E-4861-A90A-1B915658722F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClsVol", "ClsVol\ClsVol.csproj", "{7561262E-26A0-4E05-B5A1-4C19518E479E}"
@@ -64,6 +42,28 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClsCmdHotel", "ClsCmdHotel\ClsCmdHotel.csproj", "{0437CBBE-28BB-4774-8E6C-6C58D97BE99A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClsListerVol", "ClsListerVol\ClsListerVol.csproj", "{8D014F55-4E4F-4FEE-8479-E2D075696CF5}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WSVol", "http://localhost:31133", "{10F0D734-40E1-4FFD-BF0A-28B2205206EE}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv3.5"
+		ProjectReferences = "{8d014f55-4e4f-4fee-8479-e2d075696cf5}|ClsListerVol.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_31133"
+		Debug.AspNetCompiler.PhysicalPath = "d:\Documents\Visual Studio 2013\WebSites\WSVol\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_31133\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_31133"
+		Release.AspNetCompiler.PhysicalPath = "d:\Documents\Visual Studio 2013\WebSites\WSVol\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_31133\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "d:\Documents\Visual Studio 2013\WebSites\WSVol\"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,10 +75,6 @@ Global
 		{72366A2D-6070-4270-BB07-E380021DBB45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72366A2D-6070-4270-BB07-E380021DBB45}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{72366A2D-6070-4270-BB07-E380021DBB45}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{16A1A1BC-EB25-43DD-B372-C7E47B2D44E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{16A1A1BC-EB25-43DD-B372-C7E47B2D44E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{16A1A1BC-EB25-43DD-B372-C7E47B2D44E7}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{16A1A1BC-EB25-43DD-B372-C7E47B2D44E7}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{EE12EBAB-BC2E-4861-A90A-1B915658722F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EE12EBAB-BC2E-4861-A90A-1B915658722F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE12EBAB-BC2E-4861-A90A-1B915658722F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -99,17 +95,21 @@ Global
 		{8D014F55-4E4F-4FEE-8479-E2D075696CF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D014F55-4E4F-4FEE-8479-E2D075696CF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D014F55-4E4F-4FEE-8479-E2D075696CF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10F0D734-40E1-4FFD-BF0A-28B2205206EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10F0D734-40E1-4FFD-BF0A-28B2205206EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10F0D734-40E1-4FFD-BF0A-28B2205206EE}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{10F0D734-40E1-4FFD-BF0A-28B2205206EE}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{72366A2D-6070-4270-BB07-E380021DBB45} = {62F87627-7521-4D55-9535-3A18D58C4E04}
-		{16A1A1BC-EB25-43DD-B372-C7E47B2D44E7} = {3F85BC4F-30DB-4D2D-8E35-6A9AFD8097F5}
 		{EE12EBAB-BC2E-4861-A90A-1B915658722F} = {AC518835-AC57-47D9-A790-9C16570438D1}
 		{7561262E-26A0-4E05-B5A1-4C19518E479E} = {AC518835-AC57-47D9-A790-9C16570438D1}
 		{93C89CA5-2B6C-451F-B359-4AA8392E3D77} = {AC518835-AC57-47D9-A790-9C16570438D1}
 		{0437CBBE-28BB-4774-8E6C-6C58D97BE99A} = {AC518835-AC57-47D9-A790-9C16570438D1}
 		{8D014F55-4E4F-4FEE-8479-E2D075696CF5} = {8171DE8D-D7E9-47F2-B1DF-F34A0660AE60}
+		{10F0D734-40E1-4FFD-BF0A-28B2205206EE} = {3F85BC4F-30DB-4D2D-8E35-6A9AFD8097F5}
 	EndGlobalSection
 EndGlobal
