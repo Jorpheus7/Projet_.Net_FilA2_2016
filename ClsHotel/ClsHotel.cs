@@ -8,7 +8,7 @@ using System.EnterpriseServices;
 
 namespace voyage.hotel
 {
-    [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(true)]
+    [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(true), ApplicationName("Voyage 2015")]
     public class ClsHotel : ServicedComponent
     {
         [AutoComplete]
