@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
-using ClsListerVol;
+using voyage.listerVol;
 
 
 [WebService(Namespace = "http://tempuri.org/")]
@@ -22,6 +22,7 @@ public class WSVol : System.Web.Services.WebService
     [WebMethod]
     public List<vol> Liste_Vols(string ad, string aa, string d) {
         List<vol> liste = new List<vol>();
+        ClsListerVol myVol = new ClsListerVol();
 
         if (!ad.Equals(null) && !ad.Equals(" "))
         {
@@ -29,14 +30,30 @@ public class WSVol : System.Web.Services.WebService
             {
                 if (!d.Equals(null) && !d.Equals(" "))
                 {
-
+                    liste=myVol.liste_vols_aeroport_aeroport_date(ad,aa,d);
+                }
+                else
+                {
+                    liste=myVol.liste_vols_aeroport_aeroport(ad, aa);
+                }
+            }
+            else
+            {
+                liste=myVol.liste_vols_aeroport(ad);
+                if (!d.Equals(null) && !d.Equals(" "))
+                {
+                    liste=myVol.liste_vols_date_aeroport(ad, d);
                 }
             }
         }
 
-        return liste;
+        return liste;    
+    }
 
-        
+    public List<aeroport> Liste_Aeroports()
+    {
+        ClsListerVol myVol = new ClsListerVol();
+        return myVol.liste_aeroports();
     }
     
 }

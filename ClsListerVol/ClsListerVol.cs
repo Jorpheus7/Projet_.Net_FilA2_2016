@@ -12,31 +12,31 @@ namespace voyage.listerVol
     public class ClsListerVol: ServicedComponent
     {
         [AutoComplete]
-        public List<vol> liste_vols_aeroport(char[] ad)
+        public List<vol> liste_vols_aeroport(string ad)
         {
             ClsVol myVol = new ClsVol();
-            SqlDataReader reader = myVol.liste_vols_aeroport(ad);
+            SqlDataReader reader = myVol.liste_vols_aeroport(ad.ToCharArray());
             return recuperationListVol(reader);
         }
          [AutoComplete]
-        public List<vol> liste_vols_aeroport_aeroport(char[] ad, char[] aa)
+        public List<vol> liste_vols_aeroport_aeroport(string ad, string aa)
         {
             ClsVol myVol = new ClsVol();
-            SqlDataReader reader = myVol.liste_vols_aeroport_aeroport(ad,aa);
+            SqlDataReader reader = myVol.liste_vols_aeroport_aeroport(ad.ToCharArray(), aa.ToCharArray());
             return recuperationListVol(reader);
         }
          [AutoComplete]
-        public List<vol> liste_vols_date_aeroport(char[] ad, DateTimeOffset d)
+         public List<vol> liste_vols_date_aeroport(string ad, string d)
         {
             ClsVol myVol = new ClsVol();
-            SqlDataReader reader = myVol.liste_vols_date_aeroport(ad,d);
+            SqlDataReader reader = myVol.liste_vols_date_aeroport(ad.ToCharArray(), DateTimeOffset.Parse(d));
             return recuperationListVol(reader);
         }
          [AutoComplete]
-        public List<vol> liste_vols_aeroport_aeroport_date(char[] ad, char[] aa, DateTimeOffset d)
+         public List<vol> liste_vols_aeroport_aeroport_date(string ad, string aa, string d)
         {
             ClsVol myVol = new ClsVol();
-            SqlDataReader reader = myVol.liste_vols_aeroport_aeroport_date(ad,aa, d);
+            SqlDataReader reader = myVol.liste_vols_aeroport_aeroport_date(ad.ToCharArray(),aa.ToCharArray(), DateTimeOffset.Parse(d));
             return recuperationListVol(reader);
         }
          [AutoComplete]
