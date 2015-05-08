@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bl", "bl", "{8171DE8D-D7E9-47F2-B1DF-F34A0660AE60}"
 EndProject
@@ -29,9 +29,6 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "LeSite", "http://localhost:
 		Release.AspNetCompiler.Debug = "False"
 		SlnRelativePath = "LeSite\"
 		DefaultWebSiteLanguage = "Visual C#"
-	EndProjectSection
-	ProjectSection(ProjectDependencies) = postProject
-		{1BD3BC09-7571-42A7-ABDB-C9818D692938} = {1BD3BC09-7571-42A7-ABDB-C9818D692938}
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{62F87627-7521-4D55-9535-3A18D58C4E04}"
@@ -65,8 +62,30 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WSHotels", "http://localhos
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		SlnRelativePath = "WSHotels\"
-		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WSVol", "http://localhost:2990", "{8A67CD82-37CE-4856-B04C-013F216DE5E0}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv3.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_2990"
+		Debug.AspNetCompiler.PhysicalPath = "WSVol\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2990\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_2990"
+		Release.AspNetCompiler.PhysicalPath = "WSVol\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2990\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "WSVol\"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClsListerHotel", "ClsListerHotel\ClsListerHotel.csproj", "{1E559E2D-B701-4171-A289-5F64D665EF45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -102,17 +121,27 @@ Global
 		{1BD3BC09-7571-42A7-ABDB-C9818D692938}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BD3BC09-7571-42A7-ABDB-C9818D692938}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{1BD3BC09-7571-42A7-ABDB-C9818D692938}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{8A67CD82-37CE-4856-B04C-013F216DE5E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A67CD82-37CE-4856-B04C-013F216DE5E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A67CD82-37CE-4856-B04C-013F216DE5E0}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A67CD82-37CE-4856-B04C-013F216DE5E0}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{1E559E2D-B701-4171-A289-5F64D665EF45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E559E2D-B701-4171-A289-5F64D665EF45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E559E2D-B701-4171-A289-5F64D665EF45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E559E2D-B701-4171-A289-5F64D665EF45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{8D014F55-4E4F-4FEE-8479-E2D075696CF5} = {8171DE8D-D7E9-47F2-B1DF-F34A0660AE60}
+		{72366A2D-6070-4270-BB07-E380021DBB45} = {62F87627-7521-4D55-9535-3A18D58C4E04}
 		{EE12EBAB-BC2E-4861-A90A-1B915658722F} = {AC518835-AC57-47D9-A790-9C16570438D1}
 		{7561262E-26A0-4E05-B5A1-4C19518E479E} = {AC518835-AC57-47D9-A790-9C16570438D1}
 		{93C89CA5-2B6C-451F-B359-4AA8392E3D77} = {AC518835-AC57-47D9-A790-9C16570438D1}
 		{0437CBBE-28BB-4774-8E6C-6C58D97BE99A} = {AC518835-AC57-47D9-A790-9C16570438D1}
+		{8D014F55-4E4F-4FEE-8479-E2D075696CF5} = {8171DE8D-D7E9-47F2-B1DF-F34A0660AE60}
 		{1BD3BC09-7571-42A7-ABDB-C9818D692938} = {3F85BC4F-30DB-4D2D-8E35-6A9AFD8097F5}
-		{72366A2D-6070-4270-BB07-E380021DBB45} = {62F87627-7521-4D55-9535-3A18D58C4E04}
+		{8A67CD82-37CE-4856-B04C-013F216DE5E0} = {3F85BC4F-30DB-4D2D-8E35-6A9AFD8097F5}
+		{1E559E2D-B701-4171-A289-5F64D665EF45} = {8171DE8D-D7E9-47F2-B1DF-F34A0660AE60}
 	EndGlobalSection
 EndGlobal
