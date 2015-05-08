@@ -5,7 +5,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bl", "bl", "{8171DE8D-D7E9-
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dal", "dal", "{AC518835-AC57-47D9-A790-9C16570438D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClsVol", "ClassLibrary1\ClsVol.csproj", "{E4DEEC8C-A26D-4302-B93A-F4E42CC63EEB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClsVol", "ClsVol\ClsVol.csproj", "{5ECA8C50-37EC-4F3B-ADAB-307FAFE2BB3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClsHotel", "ClsHotel\ClsHotel.csproj", "{6DD84B2B-580E-41B1-903E-5B5030F752A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,15 +15,20 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E4DEEC8C-A26D-4302-B93A-F4E42CC63EEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E4DEEC8C-A26D-4302-B93A-F4E42CC63EEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E4DEEC8C-A26D-4302-B93A-F4E42CC63EEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E4DEEC8C-A26D-4302-B93A-F4E42CC63EEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ECA8C50-37EC-4F3B-ADAB-307FAFE2BB3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ECA8C50-37EC-4F3B-ADAB-307FAFE2BB3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ECA8C50-37EC-4F3B-ADAB-307FAFE2BB3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ECA8C50-37EC-4F3B-ADAB-307FAFE2BB3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DD84B2B-580E-41B1-903E-5B5030F752A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DD84B2B-580E-41B1-903E-5B5030F752A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DD84B2B-580E-41B1-903E-5B5030F752A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DD84B2B-580E-41B1-903E-5B5030F752A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{E4DEEC8C-A26D-4302-B93A-F4E42CC63EEB} = {AC518835-AC57-47D9-A790-9C16570438D1}
+		{5ECA8C50-37EC-4F3B-ADAB-307FAFE2BB3E} = {AC518835-AC57-47D9-A790-9C16570438D1}
+		{6DD84B2B-580E-41B1-903E-5B5030F752A3} = {AC518835-AC57-47D9-A790-9C16570438D1}
 	EndGlobalSection
 EndGlobal
