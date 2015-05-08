@@ -8,11 +8,11 @@
                     <fieldset>
                         <legend>Rechercher un hotel</legend>
                         <div class="form-group">
-                            <label for="inputEmail" class="col-lg-2 control-label">Aéroport de départ</label>
+                            <label for="inputEmail" class="col-lg-2 control-label">Ville</label>
                                 <div class="col-lg-10">
                                     <select id="Ville" class="form-control">
-                                        <option>NTE - Nantes</option>
-                                        <option>ORL - Orly</option>
+                                        <option>Nantes</option>
+                                        <option>Orly</option>
                                     </select>
                                 </div>
                         </div>
