@@ -35,6 +35,7 @@
             <li><a href="Default.aspx">Home</a></li>
             <li><a href="Vols.aspx">Vols</a></li>
             <li><a href="Hotels.aspx">Hotels</a></li>
+            <li><a href="ConsulterCommandes.aspx">Mes commandes</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
