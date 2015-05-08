@@ -7,10 +7,10 @@ using System.Data.SqlClient;
 using System.EnterpriseServices;
 using System.Globalization;
 
-namespace cmd.vol
+namespace cmd.hotel
 {
     [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(true)]
-    public class ClsCmdVol : ServicedComponent
+    public class ClsCmdHotel
     {
         [AutoComplete]
         public SqlDataReader new_client(String nom, String prenom, String adresse, String ville, String cp, String tel, String pays)
@@ -59,7 +59,7 @@ namespace cmd.vol
             cmd.Parameters.Add("@nom", SqlDbType.Int);
             cmd.Parameters["@nom"].Value = nom;
             cmd.Parameters.Add("@prenom", SqlDbType.Int);
-            cmd.Parameters["@prenom"].Value = prenom;
+            cmd.Parameters["@prenom"].Value = nom;
 
             SqlDataReader reader = cmd.ExecuteReader();
             myConnection.Close();
@@ -67,21 +67,25 @@ namespace cmd.vol
         }
 
         [AutoComplete]
-        public SqlDataReader new_cmdvol(int idVol, int idClient, String dateAchat, int nombrePlaces, float montant)
+        public SqlDataReader new_cmdhotel(int idChambre, int idClient, String dateAchat, int nombrePersonnes, float montant, String dateDebut, String dateFin)
         {
             SqlConnection myConnection = openConnection();
-            SqlCommand cmd = new SqlCommand("new_cmdvol", myConnection);
+            SqlCommand cmd = new SqlCommand("new_cmdhotel", myConnection);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@idVol", SqlDbType.VarChar);
-            cmd.Parameters["@idVol"].Value = idVol;
+            cmd.Parameters.Add("@idChambre", SqlDbType.VarChar);
+            cmd.Parameters["@idChambre"].Value = idChambre;
             cmd.Parameters.Add("@idClient", SqlDbType.VarChar);
             cmd.Parameters["@idClient"].Value = idClient;
             cmd.Parameters.Add("@dateAchat", SqlDbType.DateTimeOffset);
-            cmd.Parameters["@dateAchat"].Value = DateTimeOffset.Parse(dateAchat, CultureInfo.InvariantCulture); ;
-            cmd.Parameters.Add("@nbPlace", SqlDbType.Int);
-            cmd.Parameters["@nbPlace"].Value = nombrePlaces;
+            cmd.Parameters["@dateAchat"].Value = DateTimeOffset.Parse(dateAchat, CultureInfo.InvariantCulture);
+            cmd.Parameters.Add("@nbPersonne", SqlDbType.Int);
+            cmd.Parameters["@nbPersonne"].Value = nombrePersonnes;
             cmd.Parameters.Add("@montant", SqlDbType.Float);
             cmd.Parameters["@montant"].Value = montant;
+            cmd.Parameters.Add("@dateDepart", SqlDbType.DateTimeOffset);
+            cmd.Parameters["@dateDepart"].Value = DateTimeOffset.Parse(dateDebut, CultureInfo.InvariantCulture);
+            cmd.Parameters.Add("@dateFin", SqlDbType.DateTimeOffset);
+            cmd.Parameters["@dateFin"].Value = DateTimeOffset.Parse(dateFin, CultureInfo.InvariantCulture);
 
             SqlDataReader reader = cmd.ExecuteReader();
             myConnection.Close();
@@ -89,27 +93,25 @@ namespace cmd.vol
         }
 
         [AutoComplete]
-        public SqlDataReader liste_cmdvol()
+        public SqlDataReader liste_cmdhotels()
         {
             SqlConnection myConnection = openConnection();
-            SqlCommand cmd = new SqlCommand("liste_cmdvol", myConnection);
+            SqlCommand cmd = new SqlCommand("liste_cmdhotels", myConnection);
             cmd.CommandType = CommandType.StoredProcedure;
-            
+
             SqlDataReader reader = cmd.ExecuteReader();
             myConnection.Close();
             return reader;
         }
 
         [AutoComplete]
-        public SqlDataReader liste_cmdvol_client(String nom, String prenom)
+        public SqlDataReader liste_cmdhotels_client(int clientId)
         {
             SqlConnection myConnection = openConnection();
-            SqlCommand cmd = new SqlCommand("liste_cmdvol_client", myConnection);
+            SqlCommand cmd = new SqlCommand("liste_cmdhotels_client", myConnection);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@nom", SqlDbType.Int);
-            cmd.Parameters["@nom"].Value = nom;
-            cmd.Parameters.Add("@prenom", SqlDbType.Int);
-            cmd.Parameters["@prenom"].Value = prenom;
+            cmd.Parameters.Add("@idClient", SqlDbType.Int);
+            cmd.Parameters["@idClient"].Value = clientId;
 
             SqlDataReader reader = cmd.ExecuteReader();
             myConnection.Close();
@@ -119,8 +121,8 @@ namespace cmd.vol
         private SqlConnection openConnection()
         {
             SqlConnection myConnection = new SqlConnection();
-            
-            myConnection.ConnectionString = "Data Source=PC-PC\\SQLEXPRESS;Initial Catalog=CMDVOLS;Integrated Security=True";
+            // TODO Set the right Data Source value
+            myConnection.ConnectionString = "Data Source=PC-PC\\SQLEXPRESS;Initial Catalog=CMDHOTELS;Integrated Security=True";
             myConnection.Open();
             return myConnection;
         }
