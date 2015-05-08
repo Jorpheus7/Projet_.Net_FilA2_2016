@@ -8,7 +8,7 @@ using System.EnterpriseServices;
 
 namespace voyage.vol
 {
-    [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(true), ApplicationName("Voyage 2015")]
+    [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(true)]
     public class ClsVol : ServicedComponent
     {
 
