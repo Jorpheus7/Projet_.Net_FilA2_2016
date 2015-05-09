@@ -62,10 +62,11 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WSHotels", "http://localhos
 		SlnRelativePath = "WSHotels\"
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WSVol", "http://localhost:2990", "{8A67CD82-37CE-4856-B04C-013F216DE5E0}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WSVol(2)", "http://localhost:2990", "{8A67CD82-37CE-4856-B04C-013F216DE5E0}"
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv3.5"
+		ProjectReferences = "{8d014f55-4e4f-4fee-8479-e2d075696cf5}|ClsListerVol.dll;{7561262E-26A0-4E05-B5A1-4C19518E479E}|ClsVol.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_2990"
 		Debug.AspNetCompiler.PhysicalPath = "WSVol\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2990\"
