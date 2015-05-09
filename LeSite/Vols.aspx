@@ -44,6 +44,7 @@
                         <div class="form-group">
                             <div class="col-md-12 col-lg-offset-10">
                                 <asp:Button ID="Button1" cssclass="btn btn-primary" runat="server" OnClick="Button1_Click" Text="Rechercher" />
+                                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                             </div>
                        </div>
                     </fieldset>

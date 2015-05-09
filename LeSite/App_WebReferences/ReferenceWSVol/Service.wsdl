@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Liste_Vols">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ad" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="aa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="d" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Liste_VolsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Liste_VolsResult" type="tns:ArrayOfVol" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfVol">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="vol" nillable="true" type="tns:vol" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="vol">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="aeroportDepart" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="aeroportArrive" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="dateDepart" type="tns:DateTimeOffset" />
+          <s:element minOccurs="0" maxOccurs="1" name="duree" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="compagnie" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="prix" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="capacite" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DateTimeOffset" />
+      <s:element name="Liste_Aeroports">
+        <s:complexType />
+      </s:element>
+      <s:element name="Liste_AeroportsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Liste_AeroportsResult" type="tns:ArrayOfAeroport" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAeroport">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="aeroport" nillable="true" type="tns:aeroport" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="aeroport">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ville" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="pays" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Liste_VolsSoapIn">
+    <wsdl:part name="parameters" element="tns:Liste_Vols" />
+  </wsdl:message>
+  <wsdl:message name="Liste_VolsSoapOut">
+    <wsdl:part name="parameters" element="tns:Liste_VolsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Liste_AeroportsSoapIn">
+    <wsdl:part name="parameters" element="tns:Liste_Aeroports" />
+  </wsdl:message>
+  <wsdl:message name="Liste_AeroportsSoapOut">
+    <wsdl:part name="parameters" element="tns:Liste_AeroportsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WSVolSoap">
+    <wsdl:operation name="Liste_Vols">
+      <wsdl:input message="tns:Liste_VolsSoapIn" />
+      <wsdl:output message="tns:Liste_VolsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Liste_Aeroports">
+      <wsdl:input message="tns:Liste_AeroportsSoapIn" />
+      <wsdl:output message="tns:Liste_AeroportsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSVolSoap" type="tns:WSVolSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Liste_Vols">
+      <soap:operation soapAction="http://tempuri.org/Liste_Vols" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Liste_Aeroports">
+      <soap:operation soapAction="http://tempuri.org/Liste_Aeroports" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSVolSoap12" type="tns:WSVolSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Liste_Vols">
+      <soap12:operation soapAction="http://tempuri.org/Liste_Vols" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Liste_Aeroports">
+      <soap12:operation soapAction="http://tempuri.org/Liste_Aeroports" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSVol">
+    <wsdl:port name="WSVolSoap" binding="tns:WSVolSoap">
+      <soap:address location="http://localhost:2990/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSVolSoap12" binding="tns:WSVolSoap12">
+      <soap12:address location="http://localhost:2990/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

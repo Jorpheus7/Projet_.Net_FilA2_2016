@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Services;
 using System.EnterpriseServices;
 using voyage.listerVol;
+using System.Globalization;
 
 
 [WebService(Namespace = "http://tempuri.org/")]
@@ -27,9 +28,9 @@ public class WSVol : System.Web.Services.WebService
 
         if (!ad.Equals(null) && !ad.Equals(" "))
         {
-            if (!aa.Equals(null) && !ad.Equals(" "))
+            if (!aa.Equals("") && !ad.Equals(" "))
             {
-                if (!d.Equals(null) && !d.Equals(" "))
+                if (!d.Equals("") && !d.Equals(" "))
                 {
                     liste=myVol.liste_vols_aeroport_aeroport_date(ad,aa,d);
                 }
@@ -41,7 +42,7 @@ public class WSVol : System.Web.Services.WebService
             else
             {
                 liste=myVol.liste_vols_aeroport(ad);
-                if (!d.Equals(null) && !d.Equals(" "))
+                if (!d.Equals("") && !d.Equals(" "))
                 {
                     liste=myVol.liste_vols_date_aeroport(ad, d);
                 }
@@ -51,6 +52,7 @@ public class WSVol : System.Web.Services.WebService
         return liste;    
     }
 
+    [WebMethod]
     public List<aeroport> Liste_Aeroports()
     {
         ClsListerVol myVol = new ClsListerVol();

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using voyage.vol;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace voyage.listerVol
 {
@@ -31,7 +32,7 @@ namespace voyage.listerVol
          public List<vol> liste_vols_aeroport_aeroport_date(string ad, string aa, string d)
         {
             ClsVol myVol = new ClsVol();
-            SqlDataReader reader = myVol.liste_vols_aeroport_aeroport_date(ad.ToCharArray(),aa.ToCharArray(), DateTimeOffset.Parse(d));
+            SqlDataReader reader = myVol.liste_vols_aeroport_aeroport_date(ad.ToCharArray(),aa.ToCharArray(),DateTimeOffset.Parse(d));
             return recuperationListVol(reader);
         }
         public List <aeroport> liste_aeroports()
@@ -66,7 +67,7 @@ namespace voyage.listerVol
                 v.id = Convert.ToInt16(values[0]);
                 v.aeroportDepart = values[1].ToString();
                 v.aeroportArrive = values[2].ToString();
-                v.dateDepart = Convert.ToDateTime(values[3]);
+                v.dateDepart = DateTimeOffset.Parse(values[3].ToString());
                 v.duree = values[4].ToString();
                 v.compagnie = values[5].ToString();
                 v.capacite = Convert.ToInt16(values[6]);

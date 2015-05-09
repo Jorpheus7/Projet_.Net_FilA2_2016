@@ -14,7 +14,7 @@ namespace voyage.vol
         public SqlDataReader liste_vols_aeroport(char[] ad)
         {
             SqlConnection myConnection = openConnection();
-            SqlCommand MyCommand = new SqlCommand("vol_ad", myConnection);
+            SqlCommand MyCommand = new SqlCommand("liste_vols_aeroport", myConnection);
             MyCommand.CommandType = CommandType.StoredProcedure;
             MyCommand.Parameters.Add("@aeroport", SqlDbType.Char);
             MyCommand.Parameters["@aeroport"].Value = ad;
