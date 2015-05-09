@@ -5,7 +5,7 @@ using System.Text;
 using voyage.hotel;
 using System.Data.SqlClient;
 
-namespace ClsListerHotel
+namespace voyage.listerhotel
 {
     public class ClsListerHotel 
     {
@@ -17,7 +17,7 @@ namespace ClsListerHotel
             return recuperationListHotel(reader);
         }
 
-        public List<Chambre> chambres_hotels(int hotelId)
+        public List<Chambre> liste_chambres_hotels(int hotelId)
         {
             ClsHotel myHotel = new ClsHotel();
             SqlDataReader reader = myHotel.chambres_hotel(hotelId);
@@ -112,4 +112,6 @@ namespace ClsListerHotel
         public string tel;
         public string pays;
     }
+
+
 }
