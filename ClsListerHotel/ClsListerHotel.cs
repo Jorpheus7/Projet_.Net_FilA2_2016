@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using voyage.hotel;
-using System.EnterpriseServices;
 using System.Data.SqlClient;
 
 namespace ClsListerHotel
 {
-    [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(true)]
-    public class ClsListerHotel : ServicedComponent
+    public class ClsListerHotel 
     {
 
-        [AutoComplete]
         public List<Hotel> liste_hotels_ville(char[] cp)
         {
             ClsHotel myHotel = new ClsHotel();
@@ -20,7 +17,6 @@ namespace ClsListerHotel
             return recuperationListHotel(reader);
         }
 
-        [AutoComplete]
         public List<Chambre> chambres_hotels(int hotelId)
         {
             ClsHotel myHotel = new ClsHotel();
@@ -28,7 +24,6 @@ namespace ClsListerHotel
             return recuperationListChambre(reader);
         }
 
-        [AutoComplete]
         public List<string[]> liste_villes()
         {
             ClsHotel myHotel = new ClsHotel();
@@ -98,7 +93,7 @@ namespace ClsListerHotel
     }
 
 
-    public class Chambre : ServicedComponent
+    public class Chambre 
     {
         public int id;
         public int hotelId;
@@ -107,7 +102,7 @@ namespace ClsListerHotel
         public int numero;
     }
 
-    public class Hotel : ServicedComponent
+    public class Hotel 
     {
         public int id;
         public string nomHotel;

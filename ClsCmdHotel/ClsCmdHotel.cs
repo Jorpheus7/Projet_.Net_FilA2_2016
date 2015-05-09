@@ -34,7 +34,6 @@ namespace cmd.hotel
             cmd.Parameters["@pays"].Value = pays;
 
             SqlDataReader reader = cmd.ExecuteReader();
-            myConnection.Close();
             return reader;
         }
 
@@ -46,7 +45,6 @@ namespace cmd.hotel
             cmd.CommandType = CommandType.StoredProcedure;
 
             SqlDataReader reader = cmd.ExecuteReader();
-            myConnection.Close();
             return reader;
         }
 
@@ -62,7 +60,6 @@ namespace cmd.hotel
             cmd.Parameters["@prenom"].Value = nom;
 
             SqlDataReader reader = cmd.ExecuteReader();
-            myConnection.Close();
             return reader;
         }
 
@@ -88,7 +85,6 @@ namespace cmd.hotel
             cmd.Parameters["@dateFin"].Value = DateTimeOffset.Parse(dateFin, CultureInfo.InvariantCulture);
 
             SqlDataReader reader = cmd.ExecuteReader();
-            myConnection.Close();
             return reader;
         }
 
@@ -100,7 +96,6 @@ namespace cmd.hotel
             cmd.CommandType = CommandType.StoredProcedure;
 
             SqlDataReader reader = cmd.ExecuteReader();
-            myConnection.Close();
             return reader;
         }
 
@@ -114,14 +109,12 @@ namespace cmd.hotel
             cmd.Parameters["@idClient"].Value = clientId;
 
             SqlDataReader reader = cmd.ExecuteReader();
-            myConnection.Close();
             return reader;
         }
 
         private SqlConnection openConnection()
         {
             SqlConnection myConnection = new SqlConnection();
-            // TODO Set the right Data Source value
             myConnection.ConnectionString = "Data Source=PC-PC\\SQLEXPRESS;Initial Catalog=CMDHOTELS;Integrated Security=True";
             myConnection.Open();
             return myConnection;

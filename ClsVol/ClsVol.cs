@@ -4,15 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
-using System.EnterpriseServices;
+
 
 namespace voyage.vol
 {
-    [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(true)]
-    public class ClsVol : ServicedComponent
+    public class ClsVol 
     {
 
-        [AutoComplete]
         public SqlDataReader liste_vols_aeroport(char[] ad)
         {
             SqlConnection myConnection = openConnection();
@@ -22,12 +20,10 @@ namespace voyage.vol
             MyCommand.Parameters["@aeroport"].Value = ad;
 
             SqlDataReader reader = MyCommand.ExecuteReader();
-            myConnection.Close();
 
             return reader;
         }
 
-        [AutoComplete]
         public SqlDataReader liste_vols_aeroport_aeroport(char[] ad, char[] aa)
         {
             SqlConnection myConnection = openConnection();
@@ -39,12 +35,10 @@ namespace voyage.vol
             MyCommand.Parameters["@aeroportA"].Value = aa;
 
             SqlDataReader reader = MyCommand.ExecuteReader();
-            myConnection.Close();
 
             return reader;
         }
 
-        [AutoComplete]
         public SqlDataReader liste_vols_date_aeroport(char[] ad, DateTimeOffset d)
         {
             SqlConnection myConnection = openConnection();
@@ -56,12 +50,10 @@ namespace voyage.vol
             MyCommand.Parameters["@date"].Value = d;
 
             SqlDataReader reader = MyCommand.ExecuteReader();
-            myConnection.Close();
 
             return reader;
         }
 
-        [AutoComplete]
         public SqlDataReader liste_vols_aeroport_aeroport_date(char[] ad, char[] aa, DateTimeOffset d)
         {
             SqlConnection myConnection = openConnection();
@@ -75,12 +67,10 @@ namespace voyage.vol
             MyCommand.Parameters["@date"].Value = d;
 
             SqlDataReader reader = MyCommand.ExecuteReader();
-            myConnection.Close();
 
             return reader;
         }
 
-        [AutoComplete]
         public SqlDataReader liste_aeroports()
         {
             SqlConnection myConnection = openConnection();
@@ -88,7 +78,6 @@ namespace voyage.vol
             MyCommand.CommandType = CommandType.StoredProcedure;
 
             SqlDataReader reader = MyCommand.ExecuteReader();
-            myConnection.Close();
 
             return reader;
         }
@@ -96,7 +85,7 @@ namespace voyage.vol
         private SqlConnection openConnection()
         {
             SqlConnection myConnection = new SqlConnection();
-            myConnection.ConnectionString = "Data Source=PC-PC\\SQLEXPRESS;Initial Catalog=CMDVOLS;Integrated Security=True";
+            myConnection.ConnectionString = "Data Source=PC-PC\\SQLEXPRESS;Initial Catalog=VOLS;Integrated Security=True";
             myConnection.Open();
             return myConnection;
         }

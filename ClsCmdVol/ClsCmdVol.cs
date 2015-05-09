@@ -34,7 +34,6 @@ namespace cmd.vol
             cmd.Parameters["@pays"].Value = pays;
 
             SqlDataReader reader = cmd.ExecuteReader();
-            myConnection.Close();
             return reader;
         }
 
@@ -46,7 +45,6 @@ namespace cmd.vol
             cmd.CommandType = CommandType.StoredProcedure;
 
             SqlDataReader reader = cmd.ExecuteReader();
-            myConnection.Close();
             return reader;
         }
 
@@ -62,7 +60,6 @@ namespace cmd.vol
             cmd.Parameters["@prenom"].Value = prenom;
 
             SqlDataReader reader = cmd.ExecuteReader();
-            myConnection.Close();
             return reader;
         }
 
@@ -84,7 +81,6 @@ namespace cmd.vol
             cmd.Parameters["@montant"].Value = montant;
 
             SqlDataReader reader = cmd.ExecuteReader();
-            myConnection.Close();
             return reader;
         }
 
@@ -96,7 +92,6 @@ namespace cmd.vol
             cmd.CommandType = CommandType.StoredProcedure;
             
             SqlDataReader reader = cmd.ExecuteReader();
-            myConnection.Close();
             return reader;
         }
 
@@ -112,7 +107,6 @@ namespace cmd.vol
             cmd.Parameters["@prenom"].Value = prenom;
 
             SqlDataReader reader = cmd.ExecuteReader();
-            myConnection.Close();
             return reader;
         }
 

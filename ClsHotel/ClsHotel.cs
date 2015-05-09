@@ -4,14 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
-using System.EnterpriseServices;
 
 namespace voyage.hotel
 {
-    [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(true)]
-    public class ClsHotel : ServicedComponent
+    public class ClsHotel 
     {
-        [AutoComplete]
         public SqlDataReader liste_hotels_ville(char[] cp)
         {
             SqlConnection myConnection = openConnection();
@@ -21,13 +18,11 @@ namespace voyage.hotel
             MyCommand.Parameters["@codePostal"].Value = cp;
 
             SqlDataReader reader = MyCommand.ExecuteReader();
-            myConnection.Close();
 
             return reader;
 
         }
 
-        [AutoComplete]
         public SqlDataReader chambres_hotel(int hotelId)
         {
             SqlConnection myConnection = openConnection();
@@ -37,12 +32,10 @@ namespace voyage.hotel
             MyCommand.Parameters["@id"].Value = hotelId;
 
             SqlDataReader reader = MyCommand.ExecuteReader();
-            myConnection.Close();
 
             return reader;
         }
 
-        [AutoComplete]
         public SqlDataReader liste_villes()
         {
             SqlConnection myConnection = openConnection();
@@ -50,7 +43,6 @@ namespace voyage.hotel
             MyCommand.CommandType = CommandType.StoredProcedure;
 
             SqlDataReader reader = MyCommand.ExecuteReader();
-            myConnection.Close();
 
             return reader;
         }

@@ -3,43 +3,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using voyage.vol;
-using System.EnterpriseServices;
 using System.Data.SqlClient;
 
 namespace voyage.listerVol
 {
-    [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(true)]
-    public class ClsListerVol: ServicedComponent
+  
+    public class ClsListerVol
     {
-        [AutoComplete]
         public List<vol> liste_vols_aeroport(string ad)
         {
             ClsVol myVol = new ClsVol();
             SqlDataReader reader = myVol.liste_vols_aeroport(ad.ToCharArray());
             return recuperationListVol(reader);
         }
-         [AutoComplete]
         public List<vol> liste_vols_aeroport_aeroport(string ad, string aa)
         {
             ClsVol myVol = new ClsVol();
             SqlDataReader reader = myVol.liste_vols_aeroport_aeroport(ad.ToCharArray(), aa.ToCharArray());
             return recuperationListVol(reader);
         }
-         [AutoComplete]
          public List<vol> liste_vols_date_aeroport(string ad, string d)
         {
             ClsVol myVol = new ClsVol();
             SqlDataReader reader = myVol.liste_vols_date_aeroport(ad.ToCharArray(), DateTimeOffset.Parse(d));
             return recuperationListVol(reader);
         }
-         [AutoComplete]
          public List<vol> liste_vols_aeroport_aeroport_date(string ad, string aa, string d)
         {
             ClsVol myVol = new ClsVol();
             SqlDataReader reader = myVol.liste_vols_aeroport_aeroport_date(ad.ToCharArray(),aa.ToCharArray(), DateTimeOffset.Parse(d));
             return recuperationListVol(reader);
         }
-         [AutoComplete]
         public List <aeroport> liste_aeroports()
         {
             ClsVol myVol = new ClsVol();
@@ -59,7 +53,6 @@ namespace voyage.listerVol
             }
             return liste;
         }
-        [AutoComplete]
         public List<vol> recuperationListVol(SqlDataReader reader)
         {
             List<vol> liste = new List<vol>();
@@ -84,14 +77,14 @@ namespace voyage.listerVol
     }
 
 
-    public class aeroport : ServicedComponent
+    public class aeroport 
     {
         public string code;
         public string ville;
         public string pays;
     }
 
-    public class vol : ServicedComponent
+    public class vol
     {
         public int id;
         public string aeroportDepart;
