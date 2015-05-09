@@ -12,12 +12,20 @@ public partial class recherche_vol : System.Web.UI.Page
     {
         WSVol myWS = new WSVol();
         aeroport[] myTabAero = myWS.Liste_Aeroports();
-        // LIgne de test pour ROROMANMAN
-        Label1.Text = myTabAero[0].ville;
+        // Remplissage des deux listes d'aeroport
+        aeroportDepart.DataSource = myTabAero;
+        aeroportArrivee.DataSource = myTabAero;
     }
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-
+        WSVol myWS = new WSVol();
+        String depart = aeroportDepart.Text;
+        String arrivee = aeroportArrivee.Text;
+        String dateD = dateDepart.Text;
+        String dateR = dateRetour.Text;
+        //Recuperation de la liste des vols disponibles
+        vol[] volAllee = myWS.Liste_Vols(depart, arrivee, dateD);
+        vol[] volRetour= myWS.Liste_Vols(arrivee, depart, dateR);
     }
 }

@@ -10,34 +10,28 @@
                         <div class="form-group">
                             <label for="inputEmail" class="col-lg-2 control-label">Aéroport de départ</label>
                                 <div class="col-lg-10">
-                                    <select id="aeropotDepart" class="form-control">
-                                        <option>NTE - Nantes</option>
-                                        <option>ORL - Orly</option>
-                                    </select>
+                                    <asp:DropDownList ID="aeroportDepart" cssclass="form-control" runat="server"></asp:DropDownList>
                                 </div>
                         </div>
 
                         <div class="form-group">
                             <label for="inputEmail" class="col-lg-2 control-label">Aéroport d'arrivée</label>
                                 <div class="col-lg-10">
-                                    <select id="aeroportArrivee" class="form-control">
-                                        <option>NTE - Nantes</option>
-                                        <option>ORL - Orly</option>
-                                    </select>
+                                    <asp:DropDownList ID="aeroportArrivee" cssclass="form-control" runat="server"></asp:DropDownList>
                                 </div>
                         </div>
 
                         <div class="form-group">
                             <label for="inputEmail" class="col-lg-2 control-label">Date de départ</label>
                                 <div class="col-lg-10">
-                                    <input id="dateDepart" class="form-control">
+                                    <asp:TextBox ID="dateDepart" cssclass="form-control" runat="server"></asp:TextBox>
                                 </div>
                         </div>
 
                         <div class="form-group">
                             <label for="inputEmail" class="col-lg-2 control-label">Date de retour</label>
                                 <div class="col-lg-10">
-                                    <input id="dateRetour" class="form-control">
+                                    <asp:TextBox ID="dateRetour" cssclass="form-control" runat="server"></asp:TextBox>
                                 </div>
                         </div>
 
@@ -54,6 +48,8 @@
     </div>
 
     <div class="row">
+        @foreach (var vol in volAllee)
+        {
         <div class="col-md-12">
             <div class="well bs-component">
                 <div class="row">
@@ -61,14 +57,15 @@
                         <img src="img/plane.jpg" alt="dessin d'avion" />
                     </div>
                     <div class="col-md-10 col-sm-9">
-                        <h3>Nantes -> Orly</h3>
-                        <h4>Date de départ : <strong>12 Mai 2015</strong> | Durée : <strong>1h12</strong></h4>
-                        <h4>Prix : <strong>58€</strong></h4>
-                        <p>Compagnie : <strong>Air France</strong></p>
+                        <h3>vol.aeroportDepart -> vol.aeroportArrive</h3>
+                        <h4>Date de départ : <strong>vol.dateDepart</strong> | Durée : <strong>vol.duree</strong></h4>
+                        <h4>Prix : <strong>vol.prix</strong></h4>
+                        <p>Compagnie : <strong>vol.compagnie</strong></p>
                     </div>
                 </div>
             </div>
         </div>
+        }
     </div>
 
     <script>
