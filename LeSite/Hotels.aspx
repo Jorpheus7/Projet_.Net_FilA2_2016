@@ -10,24 +10,21 @@
                         <div class="form-group">
                             <label for="inputEmail" class="col-lg-2 control-label">Aéroport de départ</label>
                                 <div class="col-lg-10">
-                                    <select id="Ville" class="form-control">
-                                        <option>NTE - Nantes</option>
-                                        <option>ORL - Orly</option>
-                                    </select>
+                                    <asp:DropDownList ID="villeListe" cssclass="form-control" runat="server"></asp:DropDownList>
                                 </div>
                         </div>
 
                         <div class="form-group">
                             <label for="inputEmail" class="col-lg-2 control-label">Date de départ</label>
                                 <div class="col-lg-10">
-                                    <input id="dateDepart" class="form-control">
+                                    <asp:TextBox ID="dateDepart" cssclass="form-control" runat="server"></asp:TextBox>
                                 </div>
                         </div>
 
                         <div class="form-group">
                             <label for="inputEmail" class="col-lg-2 control-label">Date de retour</label>
                                 <div class="col-lg-10">
-                                    <input id="dateRetour" class="form-control">
+                                    <asp:TextBox ID="dateRetour" cssclass="form-control" runat="server"></asp:TextBox>
                                 </div>
                         </div>
 
@@ -43,6 +40,8 @@
     </div>
 
     <div class="row">
+        @foreach (var hotel in hotels)
+        {
         <div class="col-md-12">
             <div class="well bs-component">
                 <div class="row">
@@ -50,13 +49,14 @@
                         <span class="glyphicon glyphicon-bed"></span>
                     </div>
                     <div class="col-md-10 col-sm-9">
-                        <h3>Orly</h3>
-                        <h4>Date de départ : <strong>12 Mai 2015</strong> | Durée : <strong>1h12</strong></h4>
-                        <h4>Prix : <strong>58€</strong></h4>
+                        <h3>@hotel.nomHotel</h3>
+                        <h4> @hotel.adresse, @hotel.cp @hotel.ville</h4>
+                        <h4>Date de départ : <strong>hotel</strong> | Durée : <strong>hotel</strong></h4>
                     </div>
                 </div>
             </div>
         </div>
+        }
     </div>
 
     <script>
