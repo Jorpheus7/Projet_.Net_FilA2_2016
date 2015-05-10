@@ -176,10 +176,10 @@
   </wsdl:binding>
   <wsdl:service name="WSHotel">
     <wsdl:port name="WSHotelSoap" binding="tns:WSHotelSoap">
-      <soap:address location="http://localhost:2849/Service.asmx" />
+      <soap:address location="http://localhost:2849/WSHotel.asmx" />
     </wsdl:port>
     <wsdl:port name="WSHotelSoap12" binding="tns:WSHotelSoap12">
-      <soap12:address location="http://localhost:2849/Service.asmx" />
+      <soap12:address location="http://localhost:2849/WSHotel.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

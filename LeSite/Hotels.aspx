@@ -46,7 +46,6 @@
                     </div>
                     <div class="col-md-10 col-sm-9">
                          <% if(hotels != null) foreach (var hotel in hotels) {  %> 
-                            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                             <h3> <%=hotel.nomHotel  %> </h3>
                             <h4> <%=hotel.adresse%>,<%=hotel.cp%>,<%=hotel.ville %> </h4>
                             <h4>Téléphone : <strong><%=hotel.tel %> </strong></h4>

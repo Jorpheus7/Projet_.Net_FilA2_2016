@@ -28,14 +28,13 @@
           <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="aeroportDepart" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="aeroportArrive" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="dateDepart" type="tns:DateTimeOffset" />
+          <s:element minOccurs="0" maxOccurs="1" name="dateDepart" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="duree" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="compagnie" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="prix" type="s:float" />
           <s:element minOccurs="1" maxOccurs="1" name="capacite" type="s:int" />
         </s:sequence>
       </s:complexType>
-      <s:complexType name="DateTimeOffset" />
       <s:element name="Liste_Aeroports">
         <s:complexType />
       </s:element>
@@ -126,10 +125,10 @@
   </wsdl:binding>
   <wsdl:service name="WSVol">
     <wsdl:port name="WSVolSoap" binding="tns:WSVolSoap">
-      <soap:address location="http://localhost:2990/Service.asmx" />
+      <soap:address location="http://localhost:2990/WSVol.asmx" />
     </wsdl:port>
     <wsdl:port name="WSVolSoap12" binding="tns:WSVolSoap12">
-      <soap12:address location="http://localhost:2990/Service.asmx" />
+      <soap12:address location="http://localhost:2990/WSVol.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

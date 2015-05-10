@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using ReferenceWSVol;
+using RefWSVol;
 
 public partial class recherche_vol : System.Web.UI.Page
 {
@@ -12,7 +12,7 @@ public partial class recherche_vol : System.Web.UI.Page
      public vol[] volRetour;
 
     protected void Page_Load(object sender, EventArgs e)
-    {
+    { 
         WSVol myWS = new WSVol();
         aeroport[] myTabAero = myWS.Liste_Aeroports();
         string ch;

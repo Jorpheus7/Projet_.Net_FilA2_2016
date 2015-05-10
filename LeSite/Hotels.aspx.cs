@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using ReferenceWSHotel;
+using RefWSHotel;
 
 public partial class Hotels : System.Web.UI.Page
 {

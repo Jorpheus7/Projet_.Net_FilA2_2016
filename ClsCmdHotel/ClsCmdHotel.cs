@@ -18,21 +18,21 @@ namespace cmd.hotel
             SqlConnection myConnection = openConnection();
             SqlCommand cmd = new SqlCommand("new_client", myConnection);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@nom", SqlDbType.VarChar);
+            cmd.Parameters.Add("@nom", SqlDbType.NChar);
             cmd.Parameters["@nom"].Value = nom;
-            cmd.Parameters.Add("@prenom", SqlDbType.VarChar);
+            cmd.Parameters.Add("@prenom", SqlDbType.NChar);
             cmd.Parameters["@prenom"].Value = prenom;
             cmd.Parameters.Add("@adresse", SqlDbType.VarChar);
             cmd.Parameters["@adresse"].Value = adresse;
-            cmd.Parameters.Add("@ville", SqlDbType.VarChar);
+            cmd.Parameters.Add("@ville", SqlDbType.NChar);
             cmd.Parameters["@ville"].Value = ville;
-            cmd.Parameters.Add("@cp", SqlDbType.VarChar);
+            cmd.Parameters.Add("@cp", SqlDbType.NChar);
             cmd.Parameters["@cp"].Value = cp;
             cmd.Parameters.Add("@tel", SqlDbType.VarChar);
             cmd.Parameters["@tel"].Value = tel;
-            cmd.Parameters.Add("@pays", SqlDbType.VarChar);
+            cmd.Parameters.Add("@pays", SqlDbType.NChar);
             cmd.Parameters["@pays"].Value = pays;
-
+            
             SqlDataReader reader = cmd.ExecuteReader();
             return reader;
         }

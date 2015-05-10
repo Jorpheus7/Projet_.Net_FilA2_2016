@@ -20,6 +20,7 @@ using System.EnterpriseServices;
 // COM, affectez la valeur true à l'attribut ComVisible sur ce type.
 [assembly: ComVisible(true)]
 [assembly: ApplicationActivation(ActivationOption.Server)]
+[assembly: ApplicationName("ResaVolHotel 2015")]
 
 // Le GUID suivant est pour l'ID de la typelib si ce projet est exposé à COM
 [assembly: Guid("0f1ff0cf-7581-4030-a606-52d93deb1855")]

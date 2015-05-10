@@ -103,7 +103,7 @@
                                     
                                     <div class="form-group">
                                         <div class="col-lg-10 col-lg-offset-2">
-                                            <asp:Button ID="btnInscription" cssclass="btn btn-primary" runat="server" Text="Réserver" />
+                                            <asp:Button ID="btnInscription" cssclass="btn btn-primary" runat="server" Text="Réserver" OnClick="btnInscription_Click" />
                                         </div>
                                     </div>
 
