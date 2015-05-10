@@ -52,51 +52,68 @@
                 <h1>Vol Aller</h1>
             </div>
         </div>
-                <div class="col-md-12">
+
+        <% if (volRetour != null && volAllee.Length == 0){ %> 
+        <div class="col-md-12">
+            <div class="well bs-component">
+                <h1>Aucun vol trouvé</h1>
+            </div>
+        </div>
+        <% } %>
+
+        <% if(volAllee != null) foreach (var vol in volAllee) { %>
+        <div class="col-md-12">
             <div class="well bs-component">
                 <div class="row">
                     <div class="col-md-2 col-sm-3">
                         <img src="img/plane.jpg" alt="dessin d'avion" />
                     </div>
                     <div class="col-md-10 col-sm-9">
-        <% if(volAllee != null) foreach (var vol in volAllee) { %>
         
 
                         <h3><%=vol.aeroportDepart%> -> <%=vol.aeroportArrive%></h3>
                         <h4>Date de départ : <strong><%=vol.dateDepart%></strong> | Durée : <strong><%=vol.duree%></strong></h4>
                         <h4>Prix : <strong><%=vol.prix%></strong></h4>
                         <p>Compagnie : <strong><%=vol.compagnie%></strong></p>
-                        <%  }%>
+                       
                     </div>
                 </div>
             </div>
         </div>
-       
+        <%  }%>
 
         <div class="col-md-12">
             <div class="well bs-component">
                 <h1>Vol Retour</h1>
             </div>
         </div>
-                <div class="col-md-12">
+
+        <% if (volRetour != null && volRetour.Length == 0){ %> 
+        <div class="col-md-12">
+            <div class="well bs-component">
+                <h1>Aucun vol trouvé</h1>
+            </div>
+        </div>
+        <% } %>
+
+        <% if (volRetour != null) foreach (var vol in volRetour) { %>
+        <div class="col-md-12">
             <div class="well bs-component">
                 <div class="row">
                     <div class="col-md-2 col-sm-3">
                         <img src="img/plane.jpg" alt="dessin d'avion" />
                     </div>
                     <div class="col-md-10 col-sm-9">
-       <% if (volAllee != null)  foreach (var vol in volRetour) { %>
-
                         <h3><%=vol.aeroportDepart%> -> <%=vol.aeroportArrive%></h3>
                         <h4>Date de départ : <strong><%=vol.dateDepart%></strong> | Durée : <strong><%=vol.duree%></strong></h4>
                         <h4>Prix : <strong><%=vol.prix%></strong></h4>
                         <p>Compagnie : <strong><%=vol.compagnie%></strong></p>
-                        <%  }%>
+                        
                     </div>
                 </div>
             </div>
         </div>
-
+        <%  }%>
     </div>
 
     <script>
