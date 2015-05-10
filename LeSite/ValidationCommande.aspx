@@ -20,100 +20,98 @@
             </div>
         </div>
     </div>
-
+<form class="form-horizontal" runat="server">
     <div class="row">
                     <div class="col-md-6">
                         <div class="well bs-component">
-                            <form class="form-horizontal">
+                            
                                 <fieldset>
                                     <legend>Je suis déjà client</legend>
                                     <div class="form-group">
                                         <label for="inputEmail" class="col-lg-2 control-label">Nom</label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="inputEmail" placeholder="Nom">
+                                            <asp:TextBox ID="nomConnexion" cssclass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputPassword" class="col-lg-2 control-label">Prénom</label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="inputPassword" placeholder="prénom" >
+                                            <asp:TextBox ID="prenomConnexion" cssclass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
                                     
                                     <div class="form-group">
                                         <div class="col-lg-10 col-lg-offset-2">
-                                            <button type="submit" class="btn btn-primary">Réserver</button>
+                                            <asp:Button ID="btnConnexion" cssclass="btn btn-primary" runat="server" Text="Réserver" />
                                         </div>
                                     </div>
                                 </fieldset>
-                            </form>
                         </div>
                     </div>
                     <div class="col-md-6">
 
                         <div class="well bs-component">
-                            <form class="form-horizontal">
                                 <fieldset>
                                     <legend>Je suis nouveau client</legend>
                                     <div class="form-group">
                                         <label for="inputEmail" class="col-lg-2 control-label">Nom</label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="" placeholder="Nom">
+                                            <asp:TextBox ID="nomInscription" cssclass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputPassword" class="col-lg-2 control-label">Prénom</label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="" placeholder="prénom" >
+                                            <asp:TextBox ID="prenomInscription" cssclass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="inputPassword" class="col-lg-2 control-label">Adresse</label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="" placeholder="adresse" >
+                                            <asp:TextBox ID="adresseInscription" cssclass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="inputPassword" class="col-lg-2 control-label">Code Postal</label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="" placeholder="code postal" >
+                                            <asp:TextBox ID="cpInscription" cssclass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="inputPassword" class="col-lg-2 control-label">Ville</label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="" placeholder="ville" >
+                                            <asp:TextBox ID="villeInscription" cssclass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="inputPassword" class="col-lg-2 control-label">Téléphone</label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="" placeholder="téléphone" >
+                                            <asp:TextBox ID="telephoneInscription" cssclass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="inputPassword" class="col-lg-2 control-label">Pays</label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="" placeholder="pays" >
+                                            <asp:TextBox ID="paysInscription" cssclass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
                                     
                                     <div class="form-group">
                                         <div class="col-lg-10 col-lg-offset-2">
-                                            <button type="submit" class="btn btn-primary">Réserver</button>
+                                            <asp:Button ID="btnInscription" cssclass="btn btn-primary" runat="server" Text="Réserver" />
                                         </div>
                                     </div>
 
                                 </fieldset>
-                            </form>
+                            
                         </div>
                         
                     </div>
                 </div>
-
+</form>
 </asp:Content>
