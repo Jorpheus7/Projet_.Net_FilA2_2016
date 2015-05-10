@@ -37,8 +37,7 @@
 
                         <div class="form-group">
                             <div class="col-md-12 col-lg-offset-10">
-                                <asp:Button ID="Button1" cssclass="btn btn-primary" runat="server" OnClick="Button1_Click" Text="Rechercher" />
-                                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                                <asp:Button ID="Rechercher" cssclass="btn btn-primary" runat="server" OnClick="Button1_Click" Text="Rechercher" />
                             </div>
                        </div>
                     </fieldset>
@@ -53,49 +52,50 @@
                 <h1>Vol Aller</h1>
             </div>
         </div>
-        @foreach (var vol in volAllee)
-        {
-        <div class="col-md-12">
+                <div class="col-md-12">
             <div class="well bs-component">
                 <div class="row">
                     <div class="col-md-2 col-sm-3">
                         <img src="img/plane.jpg" alt="dessin d'avion" />
                     </div>
                     <div class="col-md-10 col-sm-9">
-                        <h3>@vol.aeroportDepart -> @vol.aeroportArrive</h3>
-                        <h4>Date de départ : <strong>@vol.dateDepart</strong> | Durée : <strong>@vol.duree</strong></h4>
-                        <h4>Prix : <strong>@vol.prix</strong></h4>
-                        <p>Compagnie : <strong>@vol.compagnie</strong></p>
+        <% if(volAllee != null) foreach (var vol in volAllee) { %>
+        
+
+                        <h3><%=vol.aeroportDepart%> -> <%=vol.aeroportArrive%></h3>
+                        <h4>Date de départ : <strong><%=vol.dateDepart%></strong> | Durée : <strong><%=vol.duree%></strong></h4>
+                        <h4>Prix : <strong><%=vol.prix%></strong></h4>
+                        <p>Compagnie : <strong><%=vol.compagnie%></strong></p>
+                        <%  }%>
                     </div>
                 </div>
             </div>
         </div>
-        }
+       
 
         <div class="col-md-12">
             <div class="well bs-component">
                 <h1>Vol Retour</h1>
             </div>
         </div>
-
-        @foreach (var vol in volRetour)
-        {
-        <div class="col-md-12">
+                <div class="col-md-12">
             <div class="well bs-component">
                 <div class="row">
                     <div class="col-md-2 col-sm-3">
                         <img src="img/plane.jpg" alt="dessin d'avion" />
                     </div>
                     <div class="col-md-10 col-sm-9">
-                        <h3>@vol.aeroportDepart -> @vol.aeroportArrive</h3>
-                        <h4>Date de départ : <strong>@vol.dateDepart</strong> | Durée : <strong>@vol.duree</strong></h4>
-                        <h4>Prix : <strong>@vol.prix</strong></h4>
-                        <p>Compagnie : <strong>@vol.compagnie</strong></p>
+       <% if (volAllee != null)  foreach (var vol in volRetour) { %>
+
+                        <h3><%=vol.aeroportDepart%> -> <%=vol.aeroportArrive%></h3>
+                        <h4>Date de départ : <strong><%=vol.dateDepart%></strong> | Durée : <strong><%=vol.duree%></strong></h4>
+                        <h4>Prix : <strong><%=vol.prix%></strong></h4>
+                        <p>Compagnie : <strong><%=vol.compagnie%></strong></p>
+                        <%  }%>
                     </div>
                 </div>
             </div>
         </div>
-        }
 
     </div>
 

@@ -6,10 +6,10 @@ using cmd.hotel;
 using System.EnterpriseServices;
 using System.Data.SqlClient;
 
-namespace ClsGererCmdHotel
+namespace voyage.cmdHotel
 {
     [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(true)]
-    public class ClsGererCmdHotel
+    public class ClsGererCmdHotel : ServicedComponent
     {
 
         [AutoComplete]
@@ -61,10 +61,10 @@ namespace ClsGererCmdHotel
         }
 
         [AutoComplete]
-        public List<CmdHotel> liste_cmdhotel_client(int clientId)
+        public List<CmdHotel> liste_cmdhotel_nom_prenom(string nom, string prenom)
         {
             ClsCmdHotel myCmdHotel = new ClsCmdHotel();
-            SqlDataReader reader = myCmdHotel.liste_cmdhotels_client(clientId);
+            SqlDataReader reader = myCmdHotel.liste_clients_nom_prenom( nom,  prenom);
             return recuperationListCmdHotel(reader);
         }
 

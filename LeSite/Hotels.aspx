@@ -8,9 +8,9 @@
                     <fieldset>
                         <legend>Rechercher un hotel</legend>
                         <div class="form-group">
-                            <label for="inputEmail" class="col-lg-2 control-label">Aéroport de départ</label>
+                           
                                 <div class="col-lg-10">
-                                    <asp:DropDownList ID="villeListe" cssclass="form-control" runat="server"></asp:DropDownList>
+                                     Ville : <asp:DropDownList ID="villeListe" cssclass="form-control" runat="server"></asp:DropDownList>
                                 </div>
                         </div>
 
@@ -34,14 +34,10 @@
                             </div>
                        </div>
                     </fieldset>
-                </form>
             </div>
         </div>
     </div>
-
     <div class="row">
-        @foreach (var hotel in hotels)
-        {
         <div class="col-md-12">
             <div class="well bs-component">
                 <div class="row">
@@ -49,16 +45,19 @@
                         <span class="glyphicon glyphicon-bed"></span>
                     </div>
                     <div class="col-md-10 col-sm-9">
-                        <h3>@hotel.nomHotel</h3>
-                        <h4> @hotel.adresse, @hotel.cp @hotel.ville</h4>
-                        <h4>Téléphone : <strong>@hotel.telephone</strong></h4>
+                         <% if(hotels != null) foreach (var hotel in hotels) {  %> 
+                            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                            <h3> <%=hotel.nomHotel  %> </h3>
+                            <h4> <%=hotel.adresse%>,<%=hotel.cp%>,<%=hotel.ville %> </h4>
+                            <h4>Téléphone : <strong><%=hotel.tel %> </strong></h4>
+                            <br> 
+                             <% } %>
                     </div>
                 </div>
             </div>
         </div>
-        }
     </div>
-
+ </form>
     <script>
         $(document).ready(function () {
             var options = {

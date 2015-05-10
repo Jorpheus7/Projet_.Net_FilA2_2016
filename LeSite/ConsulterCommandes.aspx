@@ -6,25 +6,25 @@
     <div class="row">
         <div class="col-md-12">
             <div class="well bs-component">
-                <form class="form-horizontal">
+                <form id="form1" runat="server">
                     <fieldset>
                         <legend>Choix du client</legend>
                         <div class="form-group">
                              <label for="inputEmail" class="col-lg-2 control-label">Nom</label>
                              <div class="col-lg-10">
-                                <input type="text" class="form-control" id="nomClient" placeholder="Nom">
+                                &nbsp;<asp:TextBox ID="nomClient" class="form-control" runat="server"></asp:TextBox>
                              </div>
                         </div>
                         <div class="form-group">
                             <label for="inputPassword" class="col-lg-2 control-label">Prénom</label>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" id="prenomClient" placeholder="prénom" >
+                                &nbsp;<asp:TextBox ID="prenomClient" class="form-control" runat="server"></asp:TextBox>
                             </div>
                         </div>
                                    
                         <div class="form-group">
                             <div class="col-lg-10 col-lg-offset-2">
-                                <button type="submit" class="btn btn-primary">Consulter</button>
+                                <asp:Button ID="Consulter" runat="server" class="btn btn-primary" Text="Consulter" OnClick="Consulter_Click" />
                             </div>
                         </div>
                     </fieldset>

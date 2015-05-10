@@ -6,10 +6,10 @@ using cmd.vol;
 using System.EnterpriseServices;
 using System.Data.SqlClient;
 
-namespace ClsGererCmdVol
+namespace voyage.cmdVol
 {
     [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(true)]
-    public class ClsGererCmdVol
+    public class ClsGererCmdVol : ServicedComponent
     {
 
         [AutoComplete]

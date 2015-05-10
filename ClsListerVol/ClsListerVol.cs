@@ -67,10 +67,11 @@ namespace voyage.listerVol
                 v.id = Convert.ToInt16(values[0]);
                 v.aeroportDepart = values[1].ToString();
                 v.aeroportArrive = values[2].ToString();
-                v.dateDepart = DateTimeOffset.Parse(values[3].ToString());
+                v.dateDepart = values[3].ToString();
                 v.duree = values[4].ToString();
                 v.compagnie = values[5].ToString();
-                v.capacite = Convert.ToInt16(values[6]);
+                v.prix = Single.Parse(values[6].ToString());
+                v.capacite = Convert.ToInt16(values[7]);
                 liste.Add(v);
             }
             return liste;
@@ -90,7 +91,7 @@ namespace voyage.listerVol
         public int id;
         public string aeroportDepart;
         public string aeroportArrive;
-        public DateTimeOffset dateDepart;
+        public string dateDepart;
         public string duree;
         public string compagnie;
         public float prix;
