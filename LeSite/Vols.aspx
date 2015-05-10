@@ -62,10 +62,10 @@
                         <img src="img/plane.jpg" alt="dessin d'avion" />
                     </div>
                     <div class="col-md-10 col-sm-9">
-                        <h3>vol.aeroportDepart -> vol.aeroportArrive</h3>
-                        <h4>Date de départ : <strong>vol.dateDepart</strong> | Durée : <strong>vol.duree</strong></h4>
-                        <h4>Prix : <strong>vol.prix</strong></h4>
-                        <p>Compagnie : <strong>vol.compagnie</strong></p>
+                        <h3>@vol.aeroportDepart -> @vol.aeroportArrive</h3>
+                        <h4>Date de départ : <strong>@vol.dateDepart</strong> | Durée : <strong>@vol.duree</strong></h4>
+                        <h4>Prix : <strong>@vol.prix</strong></h4>
+                        <p>Compagnie : <strong>@vol.compagnie</strong></p>
                     </div>
                 </div>
             </div>
@@ -87,10 +87,10 @@
                         <img src="img/plane.jpg" alt="dessin d'avion" />
                     </div>
                     <div class="col-md-10 col-sm-9">
-                        <h3>vol.aeroportDepart -> vol.aeroportArrive</h3>
-                        <h4>Date de départ : <strong>vol.dateDepart</strong> | Durée : <strong>vol.duree</strong></h4>
-                        <h4>Prix : <strong>vol.prix</strong></h4>
-                        <p>Compagnie : <strong>vol.compagnie</strong></p>
+                        <h3>@vol.aeroportDepart -> @vol.aeroportArrive</h3>
+                        <h4>Date de départ : <strong>@vol.dateDepart</strong> | Durée : <strong>@vol.duree</strong></h4>
+                        <h4>Prix : <strong>@vol.prix</strong></h4>
+                        <p>Compagnie : <strong>@vol.compagnie</strong></p>
                     </div>
                 </div>
             </div>

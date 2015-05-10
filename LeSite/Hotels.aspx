@@ -51,7 +51,7 @@
                     <div class="col-md-10 col-sm-9">
                         <h3>@hotel.nomHotel</h3>
                         <h4> @hotel.adresse, @hotel.cp @hotel.ville</h4>
-                        <h4>Date de départ : <strong>hotel</strong> | Durée : <strong>hotel</strong></h4>
+                        <h4>Téléphone : <strong>@hotel.telephone</strong></h4>
                     </div>
                 </div>
             </div>
