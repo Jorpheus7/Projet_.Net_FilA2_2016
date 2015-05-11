@@ -34,6 +34,8 @@
     </div>
 
         <div class="row">
+
+        <% if (cmdsVol != null) foreach (var vol in cmdsVol){ %>
         <div class="col-md-12">
             <div class="well bs-component">
                 <div class="row">
@@ -41,29 +43,39 @@
                         <img src="img/plane.jpg" alt="dessin d'avion" />
                     </div>
                     <div class="col-md-10 col-sm-9">
-                        <h3>Nantes -> Orly</h3>
-                        <h4>Date de départ : <strong>12 Mai 2015</strong> | Durée : <strong>1h12</strong></h4>
-                        <h4>Prix : <strong>58€</strong></h4>
-                        <p>Compagnie : <strong>Air France</strong></p>
+        
+
+                        <h3><%=vol.aeroportDepart%> -> <%=vol.aeroportArrive%></h3>
+                        <h4>Date de départ : <strong><%=vol.dateDepart%></strong> | Durée : <strong><%=vol.duree%></strong></h4>
+                        <h4>Prix : <strong><%=vol.prix%></strong></h4>
+                        <p>Compagnie : <strong><%=vol.compagnie%></strong></p>
+                       
                     </div>
                 </div>
             </div>
         </div>
+        <%  }%>
 
+        <% if (cmdsHotel != null) foreach (var vol in cmdsHotel){ %>
         <div class="col-md-12">
             <div class="well bs-component">
                 <div class="row">
-                    <div class="col-md-2 col-sm-3 hotel">
+                    <div class="col-md-2 col-sm-3  hotel">
                         <span class="glyphicon glyphicon-bed"></span>
                     </div>
                     <div class="col-md-10 col-sm-9">
-                        <h3>Orly</h3>
-                        <h4>Du <strong>12 Mai 2015</strong> au <strong>16 Mai 2015</strong></h4>
-                        <h4>Prix : <strong>260€</strong></h4>
+        
+                         <h3> <%=hotel.nomHotel  %> </h3>
+                            <h4> <%=hotel.adresse%>,<%=hotel.cp%>,<%=hotel.ville %> </h4>
+                            <h4>Téléphone : <strong><%=hotel.tel %> </strong></h4>
+                            <br> 
+                       
                     </div>
                 </div>
             </div>
         </div>
+        <%  }%>
+
     </div>
 
 </asp:Content>
