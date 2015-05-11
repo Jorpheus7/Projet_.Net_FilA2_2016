@@ -96,15 +96,30 @@ namespace cmd.vol
         }
 
         [AutoComplete]
-        public SqlDataReader liste_cmdvol_client(String nom, String prenom)
+        public SqlDataReader liste_cmdvol_client(int id)
         {
             SqlConnection myConnection = openConnection();
             SqlCommand cmd = new SqlCommand("liste_cmdvol_client", myConnection);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@nom", SqlDbType.Int);
+            cmd.Parameters.Add("@idClient", SqlDbType.Int);
+            cmd.Parameters["@idClient"].Value = id;
+
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            return reader;
+        }
+
+        [AutoComplete]
+        public SqlDataReader client_nom_prenom(string nom, string prenom)
+        {
+            SqlConnection myConnection = openConnection();
+            SqlCommand cmd = new SqlCommand("liste_clients_nom_prenom", myConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@nom", SqlDbType.Char);
             cmd.Parameters["@nom"].Value = nom;
-            cmd.Parameters.Add("@prenom", SqlDbType.Int);
+            cmd.Parameters.Add("@prenom", SqlDbType.Char);
             cmd.Parameters["@prenom"].Value = prenom;
+
 
             SqlDataReader reader = cmd.ExecuteReader();
             return reader;

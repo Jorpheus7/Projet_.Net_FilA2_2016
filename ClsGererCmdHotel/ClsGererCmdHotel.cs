@@ -44,13 +44,6 @@ namespace voyage.cmdHotel
             return recuperationListClient(reader);
         }
 
-        [AutoComplete]
-        public List<Client> liste_clients_nom_prenom(string nom, string prenom)
-        {
-            ClsCmdHotel myCmdHotel = new ClsCmdHotel();
-            SqlDataReader reader = myCmdHotel.liste_clients_nom_prenom(nom, prenom);
-            return recuperationListClient(reader);
-        }
 
         [AutoComplete]
         public List<CmdHotel> liste_cmdhotels()
@@ -61,11 +54,35 @@ namespace voyage.cmdHotel
         }
 
         [AutoComplete]
-        public List<CmdHotel> liste_cmdhotel_nom_prenom(string nom, string prenom)
+        public List<CmdHotel> liste_cmdhotels_clientId(int id)
         {
             ClsCmdHotel myCmdHotel = new ClsCmdHotel();
-            SqlDataReader reader = myCmdHotel.liste_clients_nom_prenom( nom,  prenom);
+            SqlDataReader reader = myCmdHotel.liste_cmdhotels_client(id);
             return recuperationListCmdHotel(reader);
+        }
+
+        [AutoComplete]
+        public Client client_nom_prenom(string nom, string prenom)
+        {
+            ClsCmdHotel myCmdHotel = new ClsCmdHotel();
+            SqlDataReader reader = myCmdHotel.client_nom_prenom( nom,  prenom);
+            
+            Client c = new Client();
+            if (reader.Read())
+            {
+                Object[] values = new Object[reader.FieldCount];
+                reader.GetValues(values);
+                c.id = Convert.ToInt16(values[0]);
+                c.nom = values[1].ToString();
+                c.prenom = values[2].ToString();
+                c.adresse = values[3].ToString();
+                c.ville = values[4].ToString();
+                c.cp = values[5].ToString();
+                c.tel = values[6].ToString();
+                c.pays = values[7].ToString();
+            }
+            return c;
+            
         }
 
 

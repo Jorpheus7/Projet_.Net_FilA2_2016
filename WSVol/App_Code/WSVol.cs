@@ -58,5 +58,12 @@ public class WSVol : System.Web.Services.WebService
         ClsListerVol myVol = new ClsListerVol();
         return myVol.liste_aeroports();
     }
+
+    [WebMethod]
+    public vol vol_id(int id)
+    {
+        ClsListerVol myVol = new ClsListerVol();
+        return myVol.vol_id(id);
+    }
     
 }

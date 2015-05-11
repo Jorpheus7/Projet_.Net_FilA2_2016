@@ -28,8 +28,8 @@ namespace voyage.hotel
             SqlConnection myConnection = openConnection();
             SqlCommand MyCommand = new SqlCommand("liste_chambres_hotel", myConnection);
             MyCommand.CommandType = CommandType.StoredProcedure;
-            MyCommand.Parameters.Add("@id", SqlDbType.Int);
-            MyCommand.Parameters["@id"].Value = hotelId;
+            MyCommand.Parameters.Add("@idHotel", SqlDbType.Int);
+            MyCommand.Parameters["@idHotel"].Value = hotelId;
 
             SqlDataReader reader = MyCommand.ExecuteReader();
 
@@ -41,6 +41,19 @@ namespace voyage.hotel
             SqlConnection myConnection = openConnection();
             SqlCommand MyCommand = new SqlCommand("liste_villes", myConnection);
             MyCommand.CommandType = CommandType.StoredProcedure;
+
+            SqlDataReader reader = MyCommand.ExecuteReader();
+
+            return reader;
+        }
+
+        public SqlDataReader hotel_id(int id)
+        {
+            SqlConnection myConnection = openConnection();
+            SqlCommand MyCommand = new SqlCommand("hotel_id", myConnection);
+            MyCommand.CommandType = CommandType.StoredProcedure;
+            MyCommand.Parameters.Add("@idHotel", SqlDbType.Int);
+            MyCommand.Parameters["@idHotel"].Value = id;
 
             SqlDataReader reader = MyCommand.ExecuteReader();
 

@@ -35,7 +35,7 @@
 
         <div class="row">
 
-        <% if (cmdsVol != null) foreach (var vol in cmdsVol){ %>
+        <% if (vols != null) foreach (var vol in vols){ %>
         <div class="col-md-12">
             <div class="well bs-component">
                 <div class="row">
@@ -56,7 +56,8 @@
         </div>
         <%  }%>
 
-        <% if (cmdsHotel != null) foreach (var vol in cmdsHotel){ %>
+        <% if (hotels != null) foreach (var hotel in hotels)
+               { %>
         <div class="col-md-12">
             <div class="well bs-component">
                 <div class="row">

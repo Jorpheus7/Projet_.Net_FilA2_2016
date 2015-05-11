@@ -39,4 +39,11 @@ public class WSHotel : System.Web.Services.WebService
         ClsListerHotel myCls = new ClsListerHotel();
         return myCls.liste_chambres_hotels(Convert.ToInt16(id));
     }
+
+    [WebMethod]
+    public Hotel hotel_id(int id)
+    {
+        ClsListerHotel myCls = new ClsListerHotel();
+        return myCls.hotel_id(Convert.ToInt16(id));
+    }
 }

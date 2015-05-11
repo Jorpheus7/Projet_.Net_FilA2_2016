@@ -24,6 +24,19 @@ namespace voyage.vol
             return reader;
         }
 
+        public SqlDataReader vol_id(int id)
+        {
+            SqlConnection myConnection = openConnection();
+            SqlCommand MyCommand = new SqlCommand("vol_id", myConnection);
+            MyCommand.CommandType = CommandType.StoredProcedure;
+            MyCommand.Parameters.Add("@id", SqlDbType.Int);
+            MyCommand.Parameters["@id"].Value = id;
+
+            SqlDataReader reader = MyCommand.ExecuteReader();
+
+            return reader;
+        }
+
         public SqlDataReader liste_vols_aeroport_aeroport(char[] ad, char[] aa)
         {
             SqlConnection myConnection = openConnection();

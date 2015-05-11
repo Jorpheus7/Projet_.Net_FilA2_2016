@@ -57,6 +57,20 @@
           <s:element minOccurs="0" maxOccurs="1" name="pays" type="s:string" />
         </s:sequence>
       </s:complexType>
+      <s:element name="vol_id">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="vol_idResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vol_idResult" type="tns:vol" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="Liste_VolsSoapIn">
@@ -71,6 +85,12 @@
   <wsdl:message name="Liste_AeroportsSoapOut">
     <wsdl:part name="parameters" element="tns:Liste_AeroportsResponse" />
   </wsdl:message>
+  <wsdl:message name="vol_idSoapIn">
+    <wsdl:part name="parameters" element="tns:vol_id" />
+  </wsdl:message>
+  <wsdl:message name="vol_idSoapOut">
+    <wsdl:part name="parameters" element="tns:vol_idResponse" />
+  </wsdl:message>
   <wsdl:portType name="WSVolSoap">
     <wsdl:operation name="Liste_Vols">
       <wsdl:input message="tns:Liste_VolsSoapIn" />
@@ -79,6 +99,10 @@
     <wsdl:operation name="Liste_Aeroports">
       <wsdl:input message="tns:Liste_AeroportsSoapIn" />
       <wsdl:output message="tns:Liste_AeroportsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="vol_id">
+      <wsdl:input message="tns:vol_idSoapIn" />
+      <wsdl:output message="tns:vol_idSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSVolSoap" type="tns:WSVolSoap">
@@ -101,6 +125,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="vol_id">
+      <soap:operation soapAction="http://tempuri.org/vol_id" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WSVolSoap12" type="tns:WSVolSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -115,6 +148,15 @@
     </wsdl:operation>
     <wsdl:operation name="Liste_Aeroports">
       <soap12:operation soapAction="http://tempuri.org/Liste_Aeroports" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vol_id">
+      <soap12:operation soapAction="http://tempuri.org/vol_id" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

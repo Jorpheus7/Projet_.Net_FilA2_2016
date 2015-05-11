@@ -62,11 +62,36 @@ namespace voyage.cmdVol
         }
 
         [AutoComplete]
-        public List<CmdVol> liste_cmdvol_nom_prenom(string nom, string prenom)
+        public List<CmdVol> liste_cmdvol_clientId(int id)
         {
             ClsCmdVol myCmdVol = new ClsCmdVol();
-            SqlDataReader reader = myCmdVol.liste_cmdvol_client(nom, prenom);
+            SqlDataReader reader = myCmdVol.liste_cmdvol_client(id);
             return recuperationListCmdVol(reader);
+        }
+
+        [AutoComplete]
+        public Client client_nom_prenom(string nom, string prenom)
+        {
+            ClsCmdVol myCmdVol = new ClsCmdVol();
+            SqlDataReader reader = myCmdVol.client_nom_prenom(nom,prenom);
+            
+            Client c = new Client();
+            if (reader.Read())
+            {
+                Object[] values = new Object[reader.FieldCount];
+                reader.GetValues(values);
+
+                c.id = Convert.ToInt16(values[0]);
+                c.nom = values[1].ToString();
+                c.prenom = values[2].ToString();
+                c.adresse = values[3].ToString();
+                c.ville = values[4].ToString();
+                c.cp = values[5].ToString();
+                c.tel = values[6].ToString();
+                c.pays = values[7].ToString();
+            }
+            
+            return c;
         }
 
         
@@ -115,7 +140,7 @@ namespace voyage.cmdVol
         }
     }
 
-
+   
     public class Client : ServicedComponent
     {
         public int id;

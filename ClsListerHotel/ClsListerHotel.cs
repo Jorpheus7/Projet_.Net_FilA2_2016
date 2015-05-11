@@ -31,6 +31,27 @@ namespace voyage.listerhotel
             return recuperationListVilles(reader);
         }
 
+        public Hotel hotel_id(int id)
+        {
+            ClsHotel myHotel = new ClsHotel();
+            SqlDataReader reader = myHotel.hotel_id(id);
+            Hotel v = new Hotel();
+
+            if (reader.Read()) { 
+                Object[] values = new Object[reader.FieldCount];
+                reader.GetValues(values);
+
+                v.id = Convert.ToInt16(values[0]);
+                v.nomHotel = values[1].ToString();
+                v.adresse = values[2].ToString();
+                v.ville = values[3].ToString();
+                v.cp = values[4].ToString();
+                v.tel = values[5].ToString();
+                v.pays = values[6].ToString();
+            }
+            return v;
+        }
+
 
         public List<Hotel> recuperationListHotel(SqlDataReader reader)
         {

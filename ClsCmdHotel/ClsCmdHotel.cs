@@ -10,7 +10,7 @@ using System.Globalization;
 namespace cmd.hotel
 {
     [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(true)]
-    public class ClsCmdHotel
+    public class ClsCmdHotel : ServicedComponent
     {
         [AutoComplete]
         public SqlDataReader new_client(String nom, String prenom, String adresse, String ville, String cp, String tel, String pays)
@@ -107,6 +107,22 @@ namespace cmd.hotel
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@idClient", SqlDbType.Int);
             cmd.Parameters["@idClient"].Value = clientId;
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            return reader;
+        }
+
+        [AutoComplete]
+        public SqlDataReader client_nom_prenom(string nom, string prenom)
+        {
+            SqlConnection myConnection = openConnection();
+            SqlCommand cmd = new SqlCommand("liste_clients_nom_prenom", myConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@nom", SqlDbType.Int);
+            cmd.Parameters["@nom"].Value = nom;
+            cmd.Parameters.Add("@prenom", SqlDbType.Int);
+            cmd.Parameters["@prenom"].Value = prenom;
+
 
             SqlDataReader reader = cmd.ExecuteReader();
             return reader;

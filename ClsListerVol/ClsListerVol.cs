@@ -35,6 +35,30 @@ namespace voyage.listerVol
             SqlDataReader reader = myVol.liste_vols_aeroport_aeroport_date(ad.ToCharArray(),aa.ToCharArray(),DateTimeOffset.Parse(d));
             return recuperationListVol(reader);
         }
+
+         public vol vol_id(int id)
+         {
+             ClsVol myVol = new ClsVol();
+             SqlDataReader reader = myVol.vol_id(id);
+             vol v = new vol();
+             if (reader.Read())
+             {
+                 Object[] values = new Object[reader.FieldCount];
+                 reader.GetValues(values);
+                 
+
+                 v.id = Convert.ToInt16(values[0]);
+                 v.aeroportDepart = values[1].ToString();
+                 v.aeroportArrive = values[2].ToString();
+                 v.dateDepart = values[3].ToString();
+                 v.duree = values[4].ToString();
+                 v.compagnie = values[5].ToString();
+                 v.prix = Single.Parse(values[6].ToString());
+                 v.capacite = Convert.ToInt16(values[7]);
+             }
+             return v;
+         }
+
         public List <aeroport> liste_aeroports()
         {
             ClsVol myVol = new ClsVol();
