@@ -7,15 +7,28 @@
         <div class="col-md-12">
             <div class="well bs-component">
                 <div class="row">
+                    <% if (vol != null){ %>
                     <div class="col-md-2 col-sm-3">
                         <img src="img/plane.jpg" alt="dessin d'avion" />
                     </div>
                     <div class="col-md-10 col-sm-9">
-                        <h3>Nantes -> Orly</h3>
-                        <h4>Date de départ : <strong>12 Mai 2015</strong> | Durée : <strong>1h12</strong></h4>
-                        <h4>Prix : <strong>58€</strong></h4>
-                        <p>Compagnie : <strong>Air France</strong></p>
+                        <h3><%=vol.aeroportDepart%> -> <%=vol.aeroportArrive%></h3>
+                        <h4>Date de départ : <strong><%=vol.dateDepart%></strong> | Durée : <strong><%=vol.duree%></strong></h4>
+                        <h4>Prix : <strong><%=vol.prix%></strong></h4>
+                        <p>Compagnie : <strong><%=vol.compagnie%></strong></p>
                     </div>
+                    <%  }%>
+                    <% if (hotel != null){ %>
+                    <div class="col-md-2 col-sm-3">
+                        <span class="glyphicon glyphicon-bed"></span>
+                    </div>
+                    <div class="col-md-10 col-sm-9">
+                        <h3> <%=hotel.nomHotel  %> </h3>
+                        <h4> <%=hotel.adresse%>,<%=hotel.cp%>,<%=hotel.ville %> </h4>
+                        <h4>Téléphone : <strong><%=hotel.tel %> </strong></h4>
+                        <br> 
+                    </div>
+                    <%  }%>
                 </div>
             </div>
         </div>
@@ -42,7 +55,7 @@
                                     
                                     <div class="form-group">
                                         <div class="col-lg-10 col-lg-offset-2">
-                                            <asp:Button ID="btnConnexion" cssclass="btn btn-primary" runat="server" Text="Réserver" />
+                                            <asp:Button ID="btnConnexion" cssclass="btn btn-primary" runat="server" Text="Réserver" OnClick="btnConnexion_Click" />
                                         </div>
                                     </div>
                                 </fieldset>
