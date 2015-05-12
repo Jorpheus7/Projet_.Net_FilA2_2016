@@ -4,15 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
-using System.EnterpriseServices;
+
 using System.Globalization;
 
 namespace cmd.hotel
 {
-    [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(true)]
-    public class ClsCmdHotel : ServicedComponent
+    public class ClsCmdHotel 
     {
-        [AutoComplete]
         public SqlDataReader new_client(String nom, String prenom, String adresse, String ville, String cp, String tel, String pays)
         {
             SqlConnection myConnection = openConnection();
@@ -37,7 +35,6 @@ namespace cmd.hotel
             return reader;
         }
 
-        [AutoComplete]
         public SqlDataReader liste_clients()
         {
             SqlConnection myConnection = openConnection();
@@ -48,7 +45,6 @@ namespace cmd.hotel
             return reader;
         }
 
-        [AutoComplete]
         public SqlDataReader liste_clients_nom_prenom(String nom, String prenom)
         {
             SqlConnection myConnection = openConnection();
@@ -63,7 +59,6 @@ namespace cmd.hotel
             return reader;
         }
 
-        [AutoComplete]
         public SqlDataReader new_cmdhotel(int idChambre, int idClient, String dateAchat, int nombrePersonnes, float montant, String dateDebut, String dateFin)
         {
             SqlConnection myConnection = openConnection();
@@ -88,7 +83,6 @@ namespace cmd.hotel
             return reader;
         }
 
-        [AutoComplete]
         public SqlDataReader liste_cmdhotels()
         {
             SqlConnection myConnection = openConnection();
@@ -99,7 +93,6 @@ namespace cmd.hotel
             return reader;
         }
 
-        [AutoComplete]
         public SqlDataReader liste_cmdhotels_client(int clientId)
         {
             SqlConnection myConnection = openConnection();
@@ -112,15 +105,14 @@ namespace cmd.hotel
             return reader;
         }
 
-        [AutoComplete]
         public SqlDataReader client_nom_prenom(string nom, string prenom)
         {
             SqlConnection myConnection = openConnection();
             SqlCommand cmd = new SqlCommand("liste_clients_nom_prenom", myConnection);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@nom", SqlDbType.Int);
+            cmd.Parameters.Add("@nom", SqlDbType.Char);
             cmd.Parameters["@nom"].Value = nom;
-            cmd.Parameters.Add("@prenom", SqlDbType.Int);
+            cmd.Parameters.Add("@prenom", SqlDbType.Char);
             cmd.Parameters["@prenom"].Value = prenom;
 
 

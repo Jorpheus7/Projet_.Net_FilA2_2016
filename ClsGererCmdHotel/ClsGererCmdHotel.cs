@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using cmd.hotel;
-using System.EnterpriseServices;
 using System.Data.SqlClient;
 
 namespace voyage.cmdHotel
 {
-    [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(true)]
-    public class ClsGererCmdHotel : ServicedComponent
+    public class ClsGererCmdHotel
     {
 
-        [AutoComplete]
         public Client new_client(string nom, string prenom, string adresse, string ville, string cp, string tel, string pays)
         {
             ClsCmdHotel myCmdHotel = new ClsCmdHotel();
@@ -20,7 +17,6 @@ namespace voyage.cmdHotel
             return recuperationListClient(reader).First();
         }
 
-        [AutoComplete]
         public CmdHotel new_cmdhotel_existing_client(int idChambre, int idClient, String dateAchat, int nombrePersonnes, float montant, string dateDebut, string dateFin)
         {
             ClsCmdHotel myCmdHotel = new ClsCmdHotel();
@@ -28,7 +24,6 @@ namespace voyage.cmdHotel
             return recuperationListCmdHotel(reader).First();
         }
 
-        [AutoComplete]
         public CmdHotel new_cmdHotel_new_client(int idChambre, String dateAchat, int nombrePlaces, float montant, string dateDebut, string dateFin, string nomClient, string prenomClient, string adresseClient, string villeClient, string cpClient, string telClient, string paysClient)
         {
             ClsCmdHotel myCmdHotel = new ClsCmdHotel();
@@ -36,7 +31,6 @@ namespace voyage.cmdHotel
             return new_cmdhotel_existing_client(idChambre, newClient.id, dateAchat, nombrePlaces, montant, dateDebut, dateFin);
         }
 
-        [AutoComplete]
         public List<Client> liste_clients()
         {
             ClsCmdHotel myCmdHotel = new ClsCmdHotel();
@@ -45,7 +39,6 @@ namespace voyage.cmdHotel
         }
 
 
-        [AutoComplete]
         public List<CmdHotel> liste_cmdhotels()
         {
             ClsCmdHotel myCmdHotel = new ClsCmdHotel();
@@ -53,7 +46,6 @@ namespace voyage.cmdHotel
             return recuperationListCmdHotel(reader);
         }
 
-        [AutoComplete]
         public List<CmdHotel> liste_cmdhotels_clientId(int id)
         {
             ClsCmdHotel myCmdHotel = new ClsCmdHotel();
@@ -61,7 +53,6 @@ namespace voyage.cmdHotel
             return recuperationListCmdHotel(reader);
         }
 
-        [AutoComplete]
         public Client client_nom_prenom(string nom, string prenom)
         {
             ClsCmdHotel myCmdHotel = new ClsCmdHotel();
@@ -122,11 +113,11 @@ namespace voyage.cmdHotel
                 c.id = Convert.ToInt16(values[0]);
                 c.idHotel = Convert.ToInt16(values[1]);
                 c.idClient = Convert.ToInt16(values[2]);
-                c.dateAchat = Convert.ToDateTime(values[3]);
+                c.dateAchat = DateTimeOffset.Parse(values[3].ToString());
                 c.nbPersonnes = Convert.ToInt16(values[4]);
                 c.montant = float.Parse(values[5].ToString());
-                c.dateDebut = Convert.ToDateTime(values[6]);
-                c.dateFin = Convert.ToDateTime(values[7]);
+                c.dateDebut = DateTimeOffset.Parse(values[6].ToString());
+                c.dateFin = DateTimeOffset.Parse(values[7].ToString());
                 liste.Add(c);
             }
             return liste;
@@ -134,7 +125,7 @@ namespace voyage.cmdHotel
     }
 
 
-    public class Client : ServicedComponent
+    public class Client
     {
         public int id;
         public string nom;
@@ -146,7 +137,7 @@ namespace voyage.cmdHotel
         public string pays;
     }
 
-    public class CmdHotel : ServicedComponent
+    public class CmdHotel
     {
         public int id;
         public int idHotel;

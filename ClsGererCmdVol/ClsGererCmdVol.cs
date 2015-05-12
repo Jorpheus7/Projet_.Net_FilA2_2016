@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using cmd.vol;
-using System.EnterpriseServices;
 using System.Data.SqlClient;
 
 namespace voyage.cmdVol
 {
-    [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(true)]
-    public class ClsGererCmdVol : ServicedComponent
+    public class ClsGererCmdVol
     {
 
-        [AutoComplete]
         public Client new_client(string nom, string prenom, string adresse, string ville, string cp, string tel, string pays)
         {
             ClsCmdVol myCmdVol = new ClsCmdVol();
@@ -20,7 +17,6 @@ namespace voyage.cmdVol
             return recuperationListClient(reader).First();
         }
 
-        [AutoComplete]
         public CmdVol new_cmdvol_existing_client(int idVol, int idClient, String dateAchat, int nombrePlaces, float montant)
         {
             ClsCmdVol myCmdVol = new ClsCmdVol();
@@ -28,7 +24,6 @@ namespace voyage.cmdVol
             return recuperationListCmdVol(reader).First();
         }
 
-        [AutoComplete]
         public CmdVol new_cmdvol_new_client(int idVol, String dateAchat, int nombrePlaces, float montant, string nomClient, string prenomClient, string adresseClient, string villeClient, string cpClient, string telClient, string paysClient)
         {
             ClsCmdVol myCmdVol = new ClsCmdVol();
@@ -37,7 +32,6 @@ namespace voyage.cmdVol
             return recuperationListCmdVol(reader).First();
         }
 
-        [AutoComplete]
         public List<Client> liste_clients()
         {
             ClsCmdVol myCmdVol = new ClsCmdVol();
@@ -45,7 +39,6 @@ namespace voyage.cmdVol
             return recuperationListClient(reader);
         }
 
-        [AutoComplete]
         public List<Client> liste_clients_nom_prenom(string nom, string prenom)
         {
             ClsCmdVol myCmdVol = new ClsCmdVol();
@@ -53,7 +46,6 @@ namespace voyage.cmdVol
             return recuperationListClient(reader);
         }
 
-        [AutoComplete]
         public List<CmdVol> liste_cmd()
         {
             ClsCmdVol myCmdVol = new ClsCmdVol();
@@ -61,7 +53,6 @@ namespace voyage.cmdVol
             return recuperationListCmdVol(reader);
         }
 
-        [AutoComplete]
         public List<CmdVol> liste_cmdvol_clientId(int id)
         {
             ClsCmdVol myCmdVol = new ClsCmdVol();
@@ -69,7 +60,6 @@ namespace voyage.cmdVol
             return recuperationListCmdVol(reader);
         }
 
-        [AutoComplete]
         public Client client_nom_prenom(string nom, string prenom)
         {
             ClsCmdVol myCmdVol = new ClsCmdVol();
@@ -131,7 +121,7 @@ namespace voyage.cmdVol
                 c.id = Convert.ToInt16(values[0]);
                 c.idVol = Convert.ToInt16(values[1]);
                 c.idClient = Convert.ToInt16(values[2]);
-                c.dateAchat = Convert.ToDateTime(values[3]); ;
+                c.dateAchat = DateTimeOffset.Parse(values[3].ToString()); ;
                 c.nbPlaces = Convert.ToInt16(values[4]);
                 c.montant = float.Parse(values[5].ToString());
                 liste.Add(c);
@@ -141,7 +131,7 @@ namespace voyage.cmdVol
     }
 
    
-    public class Client : ServicedComponent
+    public class Client 
     {
         public int id;
         public string nom;
@@ -153,7 +143,7 @@ namespace voyage.cmdVol
         public string pays;
     }
 
-    public class CmdVol : ServicedComponent
+    public class CmdVol 
     {
         public int id;
         public int idVol;

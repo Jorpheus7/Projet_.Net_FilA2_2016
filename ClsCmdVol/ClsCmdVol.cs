@@ -4,15 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
-using System.EnterpriseServices;
 using System.Globalization;
 
 namespace cmd.vol
 {
-    [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(true)]
-    public class ClsCmdVol : ServicedComponent
+    public class ClsCmdVol 
     {
-        [AutoComplete]
         public SqlDataReader new_client(String nom, String prenom, String adresse, String ville, String cp, String tel, String pays)
         {
             SqlConnection myConnection = openConnection();
@@ -37,7 +34,6 @@ namespace cmd.vol
             return reader;
         }
 
-        [AutoComplete]
         public SqlDataReader liste_clients()
         {
             SqlConnection myConnection = openConnection();
@@ -48,7 +44,6 @@ namespace cmd.vol
             return reader;
         }
 
-        [AutoComplete]
         public SqlDataReader liste_clients_nom_prenom(String nom, String prenom)
         {
             SqlConnection myConnection = openConnection();
@@ -63,7 +58,6 @@ namespace cmd.vol
             return reader;
         }
 
-        [AutoComplete]
         public SqlDataReader new_cmdvol(int idVol, int idClient, String dateAchat, int nombrePlaces, float montant)
         {
             SqlConnection myConnection = openConnection();
@@ -84,7 +78,6 @@ namespace cmd.vol
             return reader;
         }
 
-        [AutoComplete]
         public SqlDataReader liste_cmdvol()
         {
             SqlConnection myConnection = openConnection();
@@ -95,7 +88,6 @@ namespace cmd.vol
             return reader;
         }
 
-        [AutoComplete]
         public SqlDataReader liste_cmdvol_client(int id)
         {
             SqlConnection myConnection = openConnection();
@@ -109,7 +101,6 @@ namespace cmd.vol
             return reader;
         }
 
-        [AutoComplete]
         public SqlDataReader client_nom_prenom(string nom, string prenom)
         {
             SqlConnection myConnection = openConnection();

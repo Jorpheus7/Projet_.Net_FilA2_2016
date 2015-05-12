@@ -62,8 +62,10 @@ public class WSVol : System.Web.Services.WebService
     [WebMethod]
     public vol vol_id(int id)
     {
+        vol vol;
         ClsListerVol myVol = new ClsListerVol();
-        return myVol.vol_id(id);
+        vol = myVol.vol_id(id);
+        return vol;
     }
     
 }

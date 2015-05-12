@@ -22,7 +22,9 @@ public partial class ConsulterCommandes : System.Web.UI.Page
     protected void Consulter_Click(object sender, EventArgs e)
     {
         if (nomClient.Text != "" && prenomClient.Text != "")
-        {
+        {   
+            vols = new List<vol>();
+            hotels = new List<Hotel>();
             List<CmdVol> cmdsVol;
             List<CmdHotel> cmdsHotel;
             voyage.cmdVol.Client cVol;
@@ -37,7 +39,7 @@ public partial class ConsulterCommandes : System.Web.UI.Page
             cmdsVol = myClsCmdVol.liste_cmdvol_clientId(cVol.id);
             cmdsHotel = myClsCmdHotel.liste_cmdhotels_clientId(cHotel.id);
 
-
+            
             foreach (var c in cmdsVol)
             {
                 vols.Add(myWSVol.vol_id(c.idVol));

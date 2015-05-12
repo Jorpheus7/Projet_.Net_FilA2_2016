@@ -52,8 +52,8 @@ namespace voyage.hotel
             SqlConnection myConnection = openConnection();
             SqlCommand MyCommand = new SqlCommand("hotel_id", myConnection);
             MyCommand.CommandType = CommandType.StoredProcedure;
-            MyCommand.Parameters.Add("@idHotel", SqlDbType.Int);
-            MyCommand.Parameters["@idHotel"].Value = id;
+            MyCommand.Parameters.Add("@id", SqlDbType.Int);
+            MyCommand.Parameters["@id"].Value = id;
 
             SqlDataReader reader = MyCommand.ExecuteReader();
 

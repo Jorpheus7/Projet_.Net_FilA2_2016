@@ -55,8 +55,10 @@ namespace voyage.listerVol
                  v.compagnie = values[5].ToString();
                  v.prix = Single.Parse(values[6].ToString());
                  v.capacite = Convert.ToInt16(values[7]);
+
+                 return v;
              }
-             return v;
+             return null;
          }
 
         public List <aeroport> liste_aeroports()
