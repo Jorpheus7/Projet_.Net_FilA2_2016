@@ -75,7 +75,7 @@
                         <h4>Date de départ : <strong><%=vol.dateDepart%></strong> | Durée : <strong><%=vol.duree%></strong></h4>
                         <h4>Prix : <strong><%=vol.prix%></strong></h4>
                         <p>Compagnie : <strong><%=vol.compagnie%></strong></p>
-                        <a href="ValidationCommande.apsx?vol=<%=vol.id%>" class="btn  btn-primary">Reserver</a>
+                        <a href="ValidationCommande.aspx?vol=<%=vol.id%>" class="btn  btn-primary">Reserver</a>
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@
                         <h4>Date de départ : <strong><%=vol.dateDepart%></strong> | Durée : <strong><%=vol.duree%></strong></h4>
                         <h4>Prix : <strong><%=vol.prix%></strong></h4>
                         <p>Compagnie : <strong><%=vol.compagnie%></strong></p>
-                        <a href="ValidationCommande.apsx?vol=<%=vol.id%>" class="btn  btn-primary">Reserver</a>
+                        <a href="ValidationCommande.aspx?vol=<%=vol.id%>" class="btn  btn-primary">Reserver</a>
                     </div>
                 </div>
             </div>

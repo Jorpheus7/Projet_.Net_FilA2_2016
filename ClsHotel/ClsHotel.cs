@@ -28,8 +28,8 @@ namespace voyage.hotel
             SqlConnection myConnection = openConnection();
             SqlCommand MyCommand = new SqlCommand("liste_chambres_hotel", myConnection);
             MyCommand.CommandType = CommandType.StoredProcedure;
-            MyCommand.Parameters.Add("@idHotel", SqlDbType.Int);
-            MyCommand.Parameters["@idHotel"].Value = hotelId;
+            MyCommand.Parameters.Add("@id", SqlDbType.Int);
+            MyCommand.Parameters["@id"].Value = hotelId;
 
             SqlDataReader reader = MyCommand.ExecuteReader();
 

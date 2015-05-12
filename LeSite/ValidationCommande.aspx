@@ -2,7 +2,7 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
+<form class="form-horizontal" runat="server">
     <div class="row">
         <div class="col-md-12">
             <div class="well bs-component">
@@ -12,14 +12,13 @@
                         <img src="img/plane.jpg" alt="dessin d'avion" />
                     </div>
                     <div class="col-md-10 col-sm-9">
-                        <h3><%=vol.aeroportDepart%> -> <%=vol.aeroportArrive%></h3>
+                        <h3><%=vol.aeroportDepart%>-> <%=vol.aeroportArrive%></h3>
                         <h4>Date de départ : <strong><%=vol.dateDepart%></strong> | Durée : <strong><%=vol.duree%></strong></h4>
                         <h4>Prix : <strong><%=vol.prix%></strong></h4>
                         <p>Compagnie : <strong><%=vol.compagnie%></strong></p>
                         <p> Nombre de personne : <asp:TextBox ID="TextNbPersonneVol" runat="server"></asp:TextBox></p>
                     </div>
-                    <%  }%>
-                    <% if (hotel != null){ %>
+                    <%  }%>                    <% if (hotel != null){ %>
                     <div class="col-md-2 col-sm-3">
                         <span class="glyphicon glyphicon-bed"></span>
                     </div>
@@ -51,7 +50,7 @@
             </div>
         </div>
     </div>
-<form class="form-horizontal" runat="server">
+
     <div class="row">
                     <div class="col-md-6">
                         <div class="well bs-component">
@@ -74,6 +73,8 @@
                                     <div class="form-group">
                                         <div class="col-lg-10 col-lg-offset-2">
                                             <asp:Button ID="btnConnexion" cssclass="btn btn-primary" runat="server" Text="Réserver" OnClick="btnConnexion_Click" />
+                                            <br />
+                                            <asp:Label ID="LabelResaConnexion" runat="server" Text=""></asp:Label>
                                         </div>
                                     </div>
                                 </fieldset>
@@ -135,6 +136,8 @@
                                     <div class="form-group">
                                         <div class="col-lg-10 col-lg-offset-2">
                                             <asp:Button ID="btnInscription" cssclass="btn btn-primary" runat="server" Text="Réserver" OnClick="btnInscription_Click" />
+                                            <br />
+                                            <asp:Label ID="LabelResaCreation" runat="server"></asp:Label>
                                         </div>
                                     </div>
 
