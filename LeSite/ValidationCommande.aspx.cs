@@ -15,13 +15,15 @@ public partial class ValidationCommande : System.Web.UI.Page
     public Hotel hotel;
     public Boolean resaVol;
     public Boolean resaHotel;
+    public String idHotel;
+    public String idVol;
 
     protected void Page_Load(object sender, EventArgs e)
     {
         resaHotel = false;
         resaVol = false;
-        String idVol = Request["vol"];
-        String idHotel = Request["hotel"];
+        idVol = Request["vol"];
+        idHotel = Request["hotel"];
 
         if (idVol != null)
         {
@@ -35,7 +37,6 @@ public partial class ValidationCommande : System.Web.UI.Page
             WSHotel myWSHotel = new WSHotel();
             hotel = myWSHotel.hotel_id(int.Parse(idHotel));
             Chambre[] chambres = myWSHotel.liste_chambres_hotels(idHotel);
-
             foreach (var chambre in chambres)
             {
                 ListItem item = new ListItem();
@@ -70,8 +71,8 @@ public partial class ValidationCommande : System.Web.UI.Page
             }
             else
             {
-                int nbPersonne = int.Parse(TextNbPersonneVol.Text);
-                myVol.new_cmdvol_existing_client(vol.id, clientVol.id, DateTime.Now.ToString("dd/MM/yyyy"), nbPersonne, vol.prix * Convert.ToInt16(nbPersonne));
+                int nbPersonneVol = int.Parse(TextNbPersonneVol.Text);
+                myVol.new_cmdvol_existing_client(vol.id, clientVol.id, DateTime.Now.ToString("dd/MM/yyyy"), nbPersonneVol, vol.prix * Convert.ToInt16(nbPersonneVol));
                 LabelResaCreation.Text = "La commande à bien été enregistré";
             }
         }
@@ -92,8 +93,8 @@ public partial class ValidationCommande : System.Web.UI.Page
                 }
             }
 
-            int nbPersonne = int.Parse(TextNbPersonneHotel.Text);
-            myHotel.new_cmdhotel_existing_client(chambre.id, clientVol.id, DateTime.Now.ToString("dd/MM/yyyy"), nbPersonne, chambre.prix,
+            int nbPersonneHotel = int.Parse(TextNbPersonneHotel.Text);
+            myHotel.new_cmdhotel_existing_client(chambre.id, Convert.ToInt16(clientHotel.id), DateTime.Now.ToString("dd/MM/yyyy"), nbPersonneHotel, chambre.prix,
                 dateDepart.Text, dateRetour.Text);
             LabelResaCreation.Text = "La commande à bien été enregistré";
         }
@@ -107,16 +108,17 @@ public partial class ValidationCommande : System.Web.UI.Page
             string prenom = prenomConnexion.Text;
             if (nom != "" && prenom != "")
             {
-                int nbPersonne = int.Parse(TextNbPersonneVol.Text);
-
+                
                 if (resaVol)
                 {
+                    
                     if (TextNbPersonneVol.Text == "")
                     {
                         LabelResaConnexion.Text = "Veuillez renseigner le nombre de personnes";
                     }
                     else
                     {
+                        int nbPersonne = int.Parse(TextNbPersonneVol.Text);
                         voyage.cmdVol.Client cVol;
                         ClsGererCmdVol myClsCmdVol = new ClsGererCmdVol();
                         cVol = myClsCmdVol.client_nom_prenom(nom, prenom);
@@ -155,9 +157,16 @@ public partial class ValidationCommande : System.Web.UI.Page
                         cHotel = myHotel.client_nom_prenom(nom, prenom);
                         if (cHotel != null)
                         {
-                            myHotel.new_cmdhotel_existing_client(chambre.id, cHotel.id, DateTime.Now.ToString("dd/MM/yyyy"), nbPersonneHotel, chambre.prix,
-                             dateDepart.Text, dateRetour.Text);
-                            LabelResaConnexion.Text = "La commande à bien été enregistré";
+                            if (dateDepart.Text != "" && dateRetour.Text != "")
+                            {
+                                myHotel.new_cmdhotel_existing_client(chambre.id, cHotel.id, DateTime.Now.ToString("dd/MM/yyyy"), nbPersonneHotel, chambre.prix,
+                                 dateDepart.Text, dateRetour.Text);
+                                LabelResaConnexion.Text = "La commande à bien été enregistré";
+                            }
+                            else
+                            {
+                                LabelResaConnexion.Text = "Veuillez renseigner une date de depart et de retour";
+                            }
                         }
                         else
                         {

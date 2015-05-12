@@ -37,10 +37,10 @@ namespace voyage.listerhotel
             SqlDataReader reader = myHotel.hotel_id(id);
             Hotel v = new Hotel();
 
-            if (reader.Read()) { 
+            if (reader.Read()) {
                 Object[] values = new Object[reader.FieldCount];
-                reader.GetValues(values);
 
+                reader.GetValues(values);
                 v.id = Convert.ToInt16(values[0]);
                 v.nomHotel = values[1].ToString();
                 v.adresse = values[2].ToString();
@@ -52,6 +52,35 @@ namespace voyage.listerhotel
             return v;
         }
 
+        public Hotel hotel_chambre_id(int id)
+        {
+            ClsHotel myHotel = new ClsHotel();
+            int idHotel;
+
+            SqlDataReader reader = myHotel.chambre_id(id);
+            Object[] valuesChambre = new Object[reader.FieldCount];
+            reader.Read();
+            reader.GetValues(valuesChambre);
+            idHotel = Convert.ToInt16(valuesChambre[1]);
+
+            reader = myHotel.hotel_id(idHotel);
+            Hotel v = new Hotel();
+
+            if (reader.Read())
+            {
+                Object[] valuesHotel = new Object[reader.FieldCount];
+                reader.GetValues(valuesHotel);
+
+                v.id = Convert.ToInt16(valuesHotel[0]);
+                v.nomHotel = valuesHotel[1].ToString();
+                v.adresse = valuesHotel[2].ToString();
+                v.ville = valuesHotel[3].ToString();
+                v.cp = valuesHotel[4].ToString();
+                v.tel = valuesHotel[5].ToString();
+                v.pays = valuesHotel[6].ToString();
+            }
+            return v;
+        }
 
         public List<Hotel> recuperationListHotel(SqlDataReader reader)
         {

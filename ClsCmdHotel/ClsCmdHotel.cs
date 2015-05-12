@@ -64,9 +64,9 @@ namespace cmd.hotel
             SqlConnection myConnection = openConnection();
             SqlCommand cmd = new SqlCommand("new_cmdhotel", myConnection);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@idChambre", SqlDbType.VarChar);
+            cmd.Parameters.Add("@idChambre", SqlDbType.Int);
             cmd.Parameters["@idChambre"].Value = idChambre;
-            cmd.Parameters.Add("@idClient", SqlDbType.VarChar);
+            cmd.Parameters.Add("@idClient", SqlDbType.Int);
             cmd.Parameters["@idClient"].Value = idClient;
             cmd.Parameters.Add("@dateAchat", SqlDbType.DateTimeOffset);
             cmd.Parameters["@dateAchat"].Value = DateTimeOffset.Parse(dateAchat, CultureInfo.InvariantCulture);

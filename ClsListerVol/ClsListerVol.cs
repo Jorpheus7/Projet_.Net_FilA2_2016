@@ -56,9 +56,9 @@ namespace voyage.listerVol
                  v.prix = Single.Parse(values[6].ToString());
                  v.capacite = Convert.ToInt16(values[7]);
 
-                 return v;
+                 
              }
-             return null;
+             return v;
          }
 
         public List <aeroport> liste_aeroports()

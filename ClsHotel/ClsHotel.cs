@@ -23,6 +23,20 @@ namespace voyage.hotel
 
         }
 
+        public SqlDataReader chambre_id(int id)
+        {
+            SqlConnection myConnection = openConnection();
+            SqlCommand MyCommand = new SqlCommand("chambre_id", myConnection);
+            MyCommand.CommandType = CommandType.StoredProcedure;
+            MyCommand.Parameters.Add("@id", SqlDbType.Int);
+            MyCommand.Parameters["@id"].Value = id;
+
+            SqlDataReader reader = MyCommand.ExecuteReader();
+
+            return reader;
+
+        }
+
         public SqlDataReader chambres_hotel(int hotelId)
         {
             SqlConnection myConnection = openConnection();

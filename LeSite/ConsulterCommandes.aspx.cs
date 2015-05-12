@@ -46,7 +46,7 @@ public partial class ConsulterCommandes : System.Web.UI.Page
             }
             foreach (var h in cmdsHotel)
             {
-                hotels.Add(myWSHotel.hotel_id(h.idHotel));
+                hotels.Add(myWSHotel.chambre_id(h.idHotel));
             }
         }
     }

@@ -49,6 +49,7 @@
                             <h3> <%=hotel.nomHotel  %> </h3>
                             <h4> <%=hotel.adresse%>,<%=hotel.cp%>,<%=hotel.ville %> </h4>
                             <h4>Téléphone : <strong><%=hotel.tel %> </strong></h4>
+                            <a href="ValidationCommande.aspx?hotel=<%=hotel.id%>" class="btn  btn-primary">Reserver</a>
                             <br> 
                              <% } %>
                     </div>
@@ -56,7 +57,7 @@
             </div>
         </div>
     </div>
- </form>
+    </form>
     <script>
         $(document).ready(function () {
             var options = {
