@@ -16,6 +16,7 @@
                         <h4>Date de départ : <strong><%=vol.dateDepart%></strong> | Durée : <strong><%=vol.duree%></strong></h4>
                         <h4>Prix : <strong><%=vol.prix%></strong></h4>
                         <p>Compagnie : <strong><%=vol.compagnie%></strong></p>
+                        <p> Nombre de personne : <asp:TextBox ID="TextNbPersonneVol" runat="server"></asp:TextBox></p>
                     </div>
                     <%  }%>
                     <% if (hotel != null){ %>
@@ -26,6 +27,23 @@
                         <h3> <%=hotel.nomHotel  %> </h3>
                         <h4> <%=hotel.adresse%>,<%=hotel.cp%>,<%=hotel.ville %> </h4>
                         <h4>Téléphone : <strong><%=hotel.tel %> </strong></h4>
+                        <asp:RadioButtonList ID="CheckboxChambres" runat="server"></asp:RadioButtonList>
+                        <p> Nombre de personne : <asp:TextBox ID="TextNbPersonneHotel" runat="server"></asp:TextBox></p>
+
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-lg-2 control-label">Date de départ</label>
+                                <div class="col-lg-10">
+                                    <asp:TextBox ID="dateDepart" cssclass="form-control" runat="server"></asp:TextBox>
+                                </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-lg-2 control-label">Date de retour</label>
+                                <div class="col-lg-10">
+                                    <asp:TextBox ID="dateRetour" cssclass="form-control" runat="server"></asp:TextBox>
+                                </div>
+                        </div>
+
                         <br> 
                     </div>
                     <%  }%>
@@ -127,4 +145,14 @@
                     </div>
                 </div>
 </form>
+
+<script>
+            $(document).ready(function () {
+                var options = {
+                    format: 'dd/mm/yyyy'
+                };
+                $('#dateDepart').datepicker(options);
+                $('#dateRetour').datepicker(options);
+            });
+    </script>
 </asp:Content>
